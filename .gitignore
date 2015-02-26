@@ -9,6 +9,12 @@
 *.apk
 *.ap_
 
+# IDE Files
+.idea
+
+# Windows shitty files
+Thumbs.db
+
 # Files for the Dalvik VM
 *.dex
 
