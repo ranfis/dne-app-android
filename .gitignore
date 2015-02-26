@@ -11,6 +11,7 @@
 
 # IDE Files
 .idea
+.idea/misc.xml
 
 # Windows shitty files
 Thumbs.db
