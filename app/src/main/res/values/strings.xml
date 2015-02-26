@@ -3,5 +3,6 @@
 
     <string name="app_name">En El Mall</string>
     <string name="action_settings">Configuración</string>
+    <string name="title_activity_offers">Ofertas</string>
 
 </resources>
