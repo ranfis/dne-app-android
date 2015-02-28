@@ -1,17 +1,37 @@
 package com.eem.apps.enelmall;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.eem.apps.enelmall.api.DataApiCall;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 
 public class OffersActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("OffersActivity", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offers);
+
+        Intent intent = getIntent();
+        String offersString = intent.getStringExtra(StartActivity.OFFERS);
+        JSONArray offers = (JSONArray)DataApiCall.parseJson(offersString);
+        try{
+            String desc = offers.getJSONObject(0).getString("desc");
+            Toast.makeText(this,desc,Toast.LENGTH_LONG).show();
+        }
+        catch (JSONException er){
+            Log.e("OffersActivity","Bad JSON");
+        }
     }
 
 
