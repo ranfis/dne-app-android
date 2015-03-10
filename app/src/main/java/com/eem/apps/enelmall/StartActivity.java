@@ -8,7 +8,7 @@ import android.view.View;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
-import com.eem.apps.enelmall.api.DataApiCall;
+import com.eem.apps.enelmall.model.api.DataApiCall;
 
 
 public class StartActivity extends Activity {
