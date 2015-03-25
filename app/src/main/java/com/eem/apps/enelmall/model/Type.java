@@ -1,5 +1,12 @@
 package com.eem.apps.enelmall.model;
 
 public enum Type {
-    TIEMPO_LIMITADO, DESCUENTO
+    TIEMPO_LIMITADO(0),
+    DESCUENTO(1);
+
+    private int id;
+
+    Type(int id) {
+        this.id = id;
+    }
 }

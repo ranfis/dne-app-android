@@ -4,17 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
-import com.eem.apps.enelmall.model.api.DataApiCall;
-
+import com.eem.apps.enelmall.api.model.OffersBatch;
 
 public class StartActivity extends Activity {
 
     static StartActivity self;
-    public final static String OFFERS = "com.example.webapitutorial.OFFERS";
+    public final static String OFFERS = "com.eem.apps.enelmall.OFFERS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +29,10 @@ public class StartActivity extends Activity {
 
         // Get offers
         String urlString = "http://104.236.25.160:9000/api/ofertas";
-        new DataApiCall().execute(urlString,"gotoOffers");
+        new OffersBatch().execute(urlString);
     }
 
-    public void gotoOffers(View view) {
-        Log.d("StartActivity","gotoOffers()");
-        Intent offers = new Intent(this,OffersActivity.class);
-        startActivity(offers);
-    }
-
-    public static void toOffers(String offersJson){
+    public static void goToOffers(String offersJson){
         Intent offers = new Intent(self,OffersActivity.class);
         offers.putExtra(OFFERS, offersJson);
         self.startActivity(offers);

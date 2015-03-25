@@ -2,9 +2,7 @@ package com.eem.apps.enelmall.api;
 
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.eem.apps.enelmall.StartActivity;
-
+import com.eem.apps.enelmall.api.model.MockOffers;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -21,6 +19,7 @@ import java.io.InputStreamReader;
 public class DataApiCall extends AsyncTask<String, String, String> {
 
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
+        Log.d("DataApiCall","convertInputStreamToString()");
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
         String result = "";
@@ -33,6 +32,17 @@ public class DataApiCall extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
+        Log.d("DataApiCall","doInBackground()");
+        return getOffersFromMock();
+    }
+
+    private String getOffersFromMock(){
+        Log.d("DataApiCall","getOffersFromMock()");
+        return MockOffers.getOffers(1000);
+    }
+
+    protected String getOffersFromApi(String... params) {
+        Log.d("DataApiCall","getOffersFromApi()");
         String urlString=params[0];
         InputStream inputStream = null;
         String result = "";
@@ -53,15 +63,11 @@ public class DataApiCall extends AsyncTask<String, String, String> {
                 result = "{}";
             }
 
-        } catch (Exception e) {
-            Log.e("InputStream", e.getLocalizedMessage());
+        } catch (IOException e) {
+            Log.e("DataApiCall:getOffersFromApi():IOException",e.getLocalizedMessage());
         }
 
         return result;
-    }
-
-    protected void onPostExecute(String result) {
-        StartActivity.toOffers(result);
     }
 
     public static Object parseJson(String json){
@@ -70,17 +76,17 @@ public class DataApiCall extends AsyncTask<String, String, String> {
             switch (json.charAt(0)){
                 case '[':
                     jsonObj = new JSONArray(json);
-                    Log.d("DataApiCall","Received a JSON Array.");
+                    Log.v("DataApiCall:parseJson","Received a JSON Array.");
                     break;
                 case '{':
                     jsonObj = new JSONObject(json);
-                    Log.d("DataApiCall","Received a JSON Object.");
+                    Log.v("DataApiCall:parseJson","Received a JSON Object.");
                     break;
             }
             return jsonObj;
         }
         catch(JSONException err){
-            Log.e("JSONException", "Bad JSON");
+            Log.e("DataApiCall:getOffersFromApi():JSONException","Bad JSON");
             return null;
         }
     }

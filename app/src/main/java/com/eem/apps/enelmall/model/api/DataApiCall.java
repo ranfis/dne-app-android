@@ -60,10 +60,6 @@ public class DataApiCall extends AsyncTask<String, String, String> {
         return result;
     }
 
-    protected void onPostExecute(String result) {
-        StartActivity.toOffers(result);
-    }
-
     public static Object parseJson(String json){
         try{
             Object jsonObj = null;

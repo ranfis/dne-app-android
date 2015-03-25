@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.eem.apps.enelmall.api.model.MockOffers;
 import com.eem.apps.enelmall.model.api.DataApiCall;
 
 import org.json.JSONArray;
@@ -24,6 +25,7 @@ public class OffersActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
         String offersString = intent.getStringExtra(StartActivity.OFFERS);
+        Log.wtf("WTF",offersString);
         JSONArray offers = (JSONArray)DataApiCall.parseJson(offersString);
         try{
             String desc = offers.getJSONObject(0).getString("desc");
