@@ -28,8 +28,8 @@ public class StartActivity extends Activity {
         txtAppName.setTypeface(tf);
 
         // Get offers
-        String urlString = "http://104.236.25.160:9000/api/ofertas";
-        new OffersBatch().execute(urlString);
+        //String urlString = "http://104.236.25.160:9000/api/ofertas";
+        //new OffersBatch().execute(urlString);
     }
 
     public static void goToOffers(String offersJson){
