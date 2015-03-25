@@ -11,10 +11,6 @@
         android:id="@+id/imgLogo"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-<<<<<<< Updated upstream
-        android:onClick="gotoOffers"
-=======
->>>>>>> Stashed changes
         android:src="@drawable/eem_logo_alt_128" />
 
     <ProgressBar
