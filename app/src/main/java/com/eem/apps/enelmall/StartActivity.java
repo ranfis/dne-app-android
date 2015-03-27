@@ -3,8 +3,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.graphics.Typeface;
-import android.widget.TextView;
 import android.location.Location;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
@@ -16,8 +14,7 @@ import com.google.android.gms.location.LocationServices;
 
 public class StartActivity extends Activity implements ConnectionCallbacks, OnConnectionFailedListener {
     protected static final String TAG = "[StartActivity]";
-    protected GoogleApiClient mGoogleApiClient;
-    protected Location mLastLocation;
+    protected GoogleApiClient googleApiClient;
     static StartActivity self;
     public final static String OFFERS = "com.eem.apps.enelmall.OFFERS";
 
@@ -28,25 +25,16 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         self = this;
         setContentView(R.layout.activity_start);
 
-        // Change Typeface for app name
-        String fontPath = "fonts/Kraftstoff_Regular.otf";
-        TextView txtAppName = (TextView)findViewById(R.id.txtAppName);
-        Typeface tf = Typeface.createFromAsset(getAssets(), fontPath);
-        txtAppName.setTypeface(tf);
-
-        // Get offers
-        //String urlString = "http://104.236.25.160:9000/api/ofertas";
-        //new OffersBatch().execute(urlString);
-
+        // Connect to play services for location
         buildGoogleApiClient();
-        mGoogleApiClient.connect();
+        googleApiClient.connect();
     }
 
 
     // Builds a GoogleApiClient. Uses the addApi() method to request the LocationServices API.
     protected synchronized void buildGoogleApiClient() {
         Log.d(TAG,"buildGoogleApiClient()");
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
+        googleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(LocationServices.API)
@@ -57,8 +45,8 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     @Override
     protected void onStop() {
         super.onStop();
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
+        if (googleApiClient.isConnected()) {
+            googleApiClient.disconnect();
         }
     }
 
@@ -66,14 +54,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     // Runs when a GoogleApiClient object successfully connects.
     @Override
     public void onConnected(Bundle connectionHint) {
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if (mLastLocation != null) {
-           String lat = String.valueOf(mLastLocation.getLatitude());
-            String lon = String.valueOf(mLastLocation.getLatitude());
-
-        } else {
-            Toast.makeText(this, "No Location, Sorry :(", Toast.LENGTH_LONG).show(); // TODO: Prompt user to enable location
-        }
+        getNearOffers();
     }
 
 
@@ -90,7 +71,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         // The connection to Google Play services was lost for some reason. We call connect() to
         // attempt to re-establish the connection.
         Log.i(TAG, "Connection suspended");
-        mGoogleApiClient.connect();
+        googleApiClient.connect();
     }
 
 
@@ -99,5 +80,19 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         Intent offers = new Intent(self,OffersActivity.class);
         offers.putExtra(OFFERS, offersJson);
         self.startActivity(offers);
+    }
+
+    public Location getUserLocation(){
+        Location userLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+        if (userLocation == null) {
+            Toast.makeText(this, "No Location, Sorry :(", Toast.LENGTH_LONG).show(); // TODO: Prompt user to enable location
+        }
+        return userLocation;
+    }
+
+    public void getNearOffers(){
+        Location userLocation = getUserLocation();
+        String lat = String.valueOf(userLocation.getLatitude());
+        String lon = String.valueOf(userLocation.getLatitude());
     }
 }
