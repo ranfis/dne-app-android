@@ -18,8 +18,10 @@ import java.io.InputStreamReader;
 
 public class DataApiCall extends AsyncTask<String, String, String> {
 
+    protected static final String TAG = "[DataApiCall]";
+
     private static String convertInputStreamToString(InputStream inputStream) throws IOException{
-        Log.d("DataApiCall","convertInputStreamToString()");
+        Log.d(TAG, "convertInputStreamToString()");
         BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
         String line = "";
         String result = "";
@@ -32,17 +34,17 @@ public class DataApiCall extends AsyncTask<String, String, String> {
 
     @Override
     protected String doInBackground(String... params) {
-        Log.d("DataApiCall","doInBackground()");
+        Log.d(TAG, "doInBackground()");
         return getOffersFromMock();
     }
 
     private String getOffersFromMock(){
-        Log.d("DataApiCall","getOffersFromMock()");
+        Log.d(TAG, "getOffersFromMock()");
         return MockOffers.getOffers(1000);
     }
 
     protected String getOffersFromApi(String... params) {
-        Log.d("DataApiCall","getOffersFromApi()");
+        Log.d(TAG, "getOffersFromApi()");
         String urlString=params[0];
         InputStream inputStream = null;
         String result = "";
@@ -59,34 +61,35 @@ public class DataApiCall extends AsyncTask<String, String, String> {
                 result = convertInputStreamToString(inputStream);
             }
             else {
-                Log.w("httpResponse","Empty result.");
+                Log.w(TAG, "getOffersFromApi()/httpResponse:Empty result.");
                 result = "{}";
             }
 
         } catch (IOException e) {
-            Log.e("DataApiCall:getOffersFromApi():IOException",e.getLocalizedMessage());
+            Log.e(TAG, "getOffersFromApi()/IOException:e.getLocalizedMessage() = "+e.getLocalizedMessage());
         }
 
         return result;
     }
 
     public static Object parseJson(String json){
+        Log.d(TAG, "parseJson()");
         try{
             Object jsonObj = null;
             switch (json.charAt(0)){
                 case '[':
                     jsonObj = new JSONArray(json);
-                    Log.v("DataApiCall:parseJson","Received a JSON Array.");
+                    Log.v(TAG, "parseJson()/Received a JSON Array.");
                     break;
                 case '{':
                     jsonObj = new JSONObject(json);
-                    Log.v("DataApiCall:parseJson","Received a JSON Object.");
+                    Log.v(TAG, "parseJson()/Received a JSON Object.");
                     break;
             }
             return jsonObj;
         }
         catch(JSONException err){
-            Log.e("DataApiCall:getOffersFromApi():JSONException","Bad JSON");
+            Log.e(TAG, "getOffersFromApi()/JSONException:Bad JSON");
             return null;
         }
     }

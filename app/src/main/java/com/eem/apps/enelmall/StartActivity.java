@@ -83,14 +83,17 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     }
 
     public Location getUserLocation(){
+        Log.d(TAG,"getUserLocation()");
         Location userLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
         if (userLocation == null) {
+            Log.i(TAG,"userLocation: null");
             Toast.makeText(this, "No Location, Sorry :(", Toast.LENGTH_LONG).show(); // TODO: Prompt user to enable location
         }
         return userLocation;
     }
 
     public void getNearOffers(){
+        Log.d(TAG,"getNearOffers()");
         Location userLocation = getUserLocation();
         String lat = String.valueOf(userLocation.getLatitude());
         String lon = String.valueOf(userLocation.getLatitude());

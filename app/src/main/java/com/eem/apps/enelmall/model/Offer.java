@@ -1,11 +1,14 @@
 package com.eem.apps.enelmall.model;
 
+import android.util.Log;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.Map;
 
 
 public class Offer {
+    protected static final String TAG = "[Offer]";
     private int id;
     private String title;
     private String description;
@@ -92,6 +95,7 @@ public class Offer {
     }
 
     public String toString(){
+        Log.d(TAG, "getOffers()");
         //String json = String.format("{title:%d, desc:%d, type:%d, category:%d, expirationDate:%d}", title, description, type, category, expirationDate);
         String json = "{title:"+title+", desc:"+description+", type:"+type+", category:"+category+", expirationDate:"+expirationDate+"}";
         return json;

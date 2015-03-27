@@ -7,10 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
-import com.eem.apps.enelmall.api.model.MockOffers;
 import com.eem.apps.enelmall.model.api.DataApiCall;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 
