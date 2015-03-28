@@ -4,5 +4,13 @@
     <string name="app_name">En El Mall</string>
     <string name="action_settings">Configuración</string>
     <string name="title_activity_offers">Ofertas</string>
+    <string name="title_section1">Ofertas</string>
+    <string name="title_section2">Tiendas</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 
+    <string-array name="navDrawer">
+        <item>@string/title_section1</item>
+        <item>@string/title_section2</item>
+    </string-array>
 </resources>

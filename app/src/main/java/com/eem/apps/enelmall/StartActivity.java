@@ -2,8 +2,10 @@ package com.eem.apps.enelmall;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.location.Location;
+import android.view.Window;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -23,11 +25,21 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         Log.d(TAG,"onCreate()");
         super.onCreate(savedInstanceState);
         self = this;
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
+
+
 
         // Connect to play services for location
         buildGoogleApiClient();
         googleApiClient.connect();
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                startActivity(new Intent(StartActivity.this, OffersActivity.class));
+            }
+        }, 2000);
     }
 
 
