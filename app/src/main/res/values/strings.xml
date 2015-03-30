@@ -12,11 +12,30 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 
+
+    <string name="offers_filter">Filtrar</string>
     <string-array name="navDrawer">
         <item>@string/title_section1</item>
         <item>@string/title_section2</item>
         <item>@string/title_section3</item>
         <item>@string/title_section4</item>
         <item>@string/title_section5</item>
+    </string-array>
+
+
+   <!--
+   A partir de aqui es una array DEMO para la lista probando el Refresh
+   -->
+
+    <string-array name="offers_names">
+        <item>Zapatos a 2x1</item>
+        <item>Jeans por 1000 pesos</item>
+        <item>Liquidacion de pasillo</item>
+        <item>Oferta de 1/2 pizza gratis</item>
+        <item>Compra 2 lleva 4</item>
+        <item>Participa en rifa de un carro</item>
+        <item>No hay mas ofertas</item>
+        <item>2x1 en chancleta samurai</item>
+        <item>Demo de ofertas</item>
     </string-array>
 </resources>

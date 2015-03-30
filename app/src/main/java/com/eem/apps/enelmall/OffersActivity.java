@@ -2,7 +2,9 @@ package com.eem.apps.enelmall;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -10,13 +12,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.eem.apps.enelmall.model.api.DataApiCall;
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class OffersActivity extends ActionBarActivity {
@@ -27,6 +36,11 @@ public class OffersActivity extends ActionBarActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
 
+    //DEMO LISTVIEW
+    ListView mListView;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    ArrayAdapter mAdapter2;
+    Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +74,73 @@ public class OffersActivity extends ActionBarActivity {
 
 
 
+        // Knowing ubication proceed to name the Mall in the activity
+        settingMall();
+
+        mListView = (ListView) findViewById(R.id.offerslist);
+        //mAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+        //        );
+
+        //mListView.setAdapter(mAdapter2);
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+            handler.post(refreshing);
+            }
+        });
+
+        mSwipeRefreshLayout.setColorSchemeColors(R.color.eem_dark_blue,
+                R.color.eem_pale_yellow, R.color.eem_dark_orange);
+
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                boolean enable = false;
+
+                /**
+                 * This enables us to force the layout to refresh only when the first item
+                 * of the list is visible.
+                 **/
+                if(mListView != null && mListView.getChildCount() > 0){
+                    // check if the first item of the list is visible
+                    boolean firstItemVisible = mListView.getFirstVisiblePosition() == 0;
+                    // check if the top of the first item is visible
+                    boolean topOfFirstItemVisible = mListView.getChildAt(0).getTop() == 0;
+                    // enabling or disabling the refresh layout
+                    enable = firstItemVisible && topOfFirstItemVisible;
+                }
+                mSwipeRefreshLayout.setEnabled(enable);
+            }
+        });
     }
+
+    private final Runnable refreshing = new Runnable() {
+        public void run() {
+            try {
+                if (mSwipeRefreshLayout.isRefreshing()) {
+                    handler.postDelayed(this, 1000);
+                } else {
+                    mSwipeRefreshLayout.setRefreshing(false);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+
+    private void settingMall() {
+        TextView mallTitle = (TextView) findViewById(R.id.mall_text);
+        mallTitle.setText("Agora Mall");
+    }
+
 
     private void addDrawerItems() {
         // Para agregar titulos, trabajar con el string.xml y en el array agregar ITEMS
