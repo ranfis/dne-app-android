@@ -63,6 +63,7 @@ public class OffersActivity extends ActionBarActivity {
     }
 
     private void addDrawerItems() {
+        // Para agregar titulos, trabajar con el string.xml y en el array agregar ITEMS
         String[] osArray = getResources().getStringArray(R.array.navDrawer);
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
@@ -70,7 +71,40 @@ public class OffersActivity extends ActionBarActivity {
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Toast.makeText(OffersActivity.this, "Posicion: " + position, Toast.LENGTH_SHORT ).show();
+
+                switch(position) {
+                    case 0: // Ofertas refresh
+                        Intent i = getIntent();
+                        finish();
+                        i.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                        startActivity(i);
+                        break;
+
+                    case 1: // Tiendas
+//                        Intent i2 = new Intent(getApplicationContext(), Tiendas.class);
+//                        startActivity(i2);
+                        break;
+
+                    case 2:  // Mall
+//                        Intent i2 = new Intent(getApplicationContext(), Mall.class);
+//                        startActivity(i2);
+                        break;
+
+                    case 3: // Configuracion
+//                        Intent i2 = new Intent(getApplicationContext(), Configuracion.class);
+//                        startActivity(i2);
+                        break;
+
+                    case 4: // Acerca
+//                        Intent i2 = new Intent(getApplicationContext(), Acerca.class);
+//                        startActivity(i2);
+                        break;
+
+                }
+
+
             }
         });
     }
