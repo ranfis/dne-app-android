@@ -2,17 +2,17 @@
 <resources>
     <style name="eem_Theme" parent="Theme.AppCompat.Light">
         <item name="android:windowBackground">@color/eem_white</item>
-        <item name="android:colorPrimary">@color/eem_yellow</item>
-        <item name="android:colorPrimaryDark">@color/eem_orange</item>
+        <item name="android:colorPrimary">@color/eem_pale_yellow</item>
+        <item name="android:colorPrimaryDark">@color/eem_dark_yellow</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:textColorPrimary">@color/eem_dark_blue</item>
-        <item name="android:colorAccent">@color/eem_yellow</item>
-        <item name="android:navigationBarColor">@color/eem_orange</item>
+        <item name="android:colorAccent">@color/eem_pale_yellow</item>
+        <item name="android:navigationBarColor">@color/eem_dark_yellow</item>
         <item name="android:windowActionBar">true</item>
 
-        <item name="colorPrimary">@color/eem_yellow</item>
-        <item name="colorPrimaryDark">@color/eem_orange</item>
-        <item name="colorAccent">@color/eem_yellow</item>
+        <item name="colorPrimary">@color/eem_pale_yellow</item>
+        <item name="colorPrimaryDark">@color/eem_dark_yellow</item>
+        <item name="colorAccent">@color/eem_pale_yellow</item>
         <item name="windowActionBar">true</item>
     </style>
 </resources>
