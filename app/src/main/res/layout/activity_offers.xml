@@ -50,20 +50,20 @@
 
             </LinearLayout>
         </TableRow>
-
+<!--
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/activity_main_swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+-->
 
         <ListView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/offerslist" />
-
+<!--
     </android.support.v4.widget.SwipeRefreshLayout>
-
+-->
 </LinearLayout>
 
     <!-- Side navigation drawer UI -->

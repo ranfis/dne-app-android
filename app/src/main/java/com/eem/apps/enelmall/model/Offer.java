@@ -17,12 +17,15 @@ public class Offer {
     private String expirationDate;
     private Store store;
     private Map<String, Integer> location;
+    private Object image;
+
 
     public Offer(int id){
         this.id = id;
     }
 
-    public Offer(String title, String description, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location) {
+    public Offer(int id, String title, String description, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location, Object image) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.type = type;
@@ -30,6 +33,7 @@ public class Offer {
         this.expirationDate = expirationDate;
         this.store = store;
         this.location = location;
+        this.image = image;
     }
 
     public Offer(JSONObject jsonObj) {
@@ -92,6 +96,42 @@ public class Offer {
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public static String getTag() {
+        return TAG;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
+    }
+
+    public Map<String, Integer> getLocation() {
+        return location;
+    }
+
+    public void setLocation(Map<String, Integer> location) {
+        this.location = location;
+    }
+
+    public Object getImage() {
+        return image;
+    }
+
+    public void setImage(Object image) {
+        this.image = image;
     }
 
     public String toString(){

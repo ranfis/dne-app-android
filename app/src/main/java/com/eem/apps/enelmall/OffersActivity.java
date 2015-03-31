@@ -19,6 +19,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.eem.apps.enelmall.model.Category;
+import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.OffersAdapter;
+import com.eem.apps.enelmall.model.Store;
+import com.eem.apps.enelmall.model.Type;
 import com.eem.apps.enelmall.model.api.DataApiCall;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,11 +42,10 @@ public class OffersActivity extends ActionBarActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private DrawerLayout mDrawerLayout;
 
-    //DEMO LISTVIEW
-    ListView mListView;
-    SwipeRefreshLayout mSwipeRefreshLayout;
-    ArrayAdapter mAdapter2;
-    Handler handler = new Handler();
+
+    private ArrayList<Offer> offers;
+    private ListView mOfferList;
+    private OffersAdapter oAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,63 +82,25 @@ public class OffersActivity extends ActionBarActivity {
         // Knowing ubication proceed to name the Mall in the activity
         settingMall();
 
-        mListView = (ListView) findViewById(R.id.offerslist);
-        //mAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-        //        );
 
-        //mListView.setAdapter(mAdapter2);
-
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        offers = new ArrayList<Offer>();
+        offers.add(new Offer(1, "2x1 en Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+        offers.add(new Offer(2, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+        offers.add(new Offer(3, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+        oAdapter = new OffersAdapter(OffersActivity.this, offers);
+        mOfferList = (ListView) findViewById(R.id.offerslist);
+        mOfferList.setAdapter(oAdapter);
+        mOfferList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onRefresh() {
-            handler.post(refreshing);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Posicion: " + position, Toast.LENGTH_SHORT).show();
             }
         });
 
-        mSwipeRefreshLayout.setColorSchemeColors(R.color.eem_dark_blue,
-                R.color.eem_pale_yellow, R.color.eem_dark_orange);
 
-        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-                boolean enable = false;
-
-                /**
-                 * This enables us to force the layout to refresh only when the first item
-                 * of the list is visible.
-                 **/
-                if(mListView != null && mListView.getChildCount() > 0){
-                    // check if the first item of the list is visible
-                    boolean firstItemVisible = mListView.getFirstVisiblePosition() == 0;
-                    // check if the top of the first item is visible
-                    boolean topOfFirstItemVisible = mListView.getChildAt(0).getTop() == 0;
-                    // enabling or disabling the refresh layout
-                    enable = firstItemVisible && topOfFirstItemVisible;
-                }
-                mSwipeRefreshLayout.setEnabled(enable);
-            }
-        });
     }
 
-    private final Runnable refreshing = new Runnable() {
-        public void run() {
-            try {
-                if (mSwipeRefreshLayout.isRefreshing()) {
-                    handler.postDelayed(this, 1000);
-                } else {
-                    mSwipeRefreshLayout.setRefreshing(false);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
+
 
 
     private void settingMall() {

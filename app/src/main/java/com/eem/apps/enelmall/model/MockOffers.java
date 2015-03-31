@@ -1,15 +1,32 @@
 package com.eem.apps.enelmall.model;
 
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
 import android.util.Log;
+
+import com.eem.apps.enelmall.OffersActivity;
 
 
 public class MockOffers {
     protected static final String TAG = "[MockOffers]";
 
     static Offer[] offers = {
-            new Offer("tile","description",Type.DESCUENTO, Category.BELLEZA,"//",new Store(1),null)
+            new Offer(1,"tile","description",Type.DESCUENTO, Category.BELLEZA,"23/23/12",new Store(1), null, null)
     };
+
+
+
+//    this.id = id;
+//    this.title = title;
+//    this.description = description;
+//    this.type = type;
+//    this.category = category;
+//    this.expirationDate = expirationDate;
+//    this.store = store;
+//    this.location = location;
+//    this.image = image;
 
 
     public static String getOffers(int delay){
