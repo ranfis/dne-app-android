@@ -94,6 +94,9 @@ public class OffersActivity extends ActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getApplicationContext(), "Posicion: " + position, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), DetailsActivity.class);
+                i.putExtra("Offer", offers.get(position));
+                startActivity(i);
             }
         });
 

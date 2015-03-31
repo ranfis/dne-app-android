@@ -4,10 +4,12 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.Serializable;
 import java.util.Map;
 
 
-public class Offer {
+public class Offer implements Serializable {
     protected static final String TAG = "[Offer]";
     private int id;
     private String title;

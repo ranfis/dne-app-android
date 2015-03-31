@@ -1,9 +1,13 @@
 package com.eem.apps.enelmall;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.eem.apps.enelmall.model.Offer;
 
 
 public class DetailsActivity extends ActionBarActivity {
@@ -12,6 +16,12 @@ public class DetailsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+
+
+        Intent i = getIntent();
+        Offer offer = (Offer) i.getSerializableExtra("Offer");
+        TextView demo = (TextView) findViewById(R.id.textView2);
+        demo.setText(offer.getTitle());
     }
 
 
