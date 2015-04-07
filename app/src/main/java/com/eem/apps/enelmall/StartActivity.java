@@ -35,18 +35,8 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
 
 
         // Connect to play services for location
-//        buildGoogleApiClient();
-//        googleApiClient.connect();
-
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            public void run() {
-//                startActivity(new Intent(StartActivity.this, OffersActivity.class));
-//            }
-//        }, 2000);
-
-        String urlString = "http://104.236.25.160/api/offers";
-        new OffersBatch().execute(urlString,"1","2");
+        buildGoogleApiClient();
+        googleApiClient.connect();
     }
 
 
