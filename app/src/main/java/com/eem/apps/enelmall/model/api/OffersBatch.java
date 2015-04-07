@@ -1,4 +1,4 @@
-package com.eem.apps.enelmall.model;
+package com.eem.apps.enelmall.model.api;
 
 import android.util.Log;
 import com.eem.apps.enelmall.StartActivity;
@@ -9,6 +9,8 @@ public class OffersBatch extends DataApiCall {
 
     protected void onPostExecute(String result) {
         Log.d(TAG,"onPostExecute()");
-        StartActivity.goToOffers(result);
+        parseJson(result);
+        Log.d(TAG,"res"+result);
+        //StartActivity.goToOffers(result);
     }
 }
