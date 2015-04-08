@@ -13,7 +13,7 @@ public class MockOffers {
     protected static final String TAG = "[MockOffers]";
 
     static Offer[] offers = {
-            new Offer(1,"tile","description",Type.DESCUENTO, Category.BELLEZA,"23/23/12",new Store(1), null, null)
+
     };
 
 

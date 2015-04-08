@@ -13,7 +13,7 @@ public class Offer implements Serializable {
     protected static final String TAG = "[Offer]";
     private int id;
     private String title;
-    private String description;
+    private String details;
     private Type type;
     private Category category;
     private String expirationDate;
@@ -26,10 +26,10 @@ public class Offer implements Serializable {
         this.id = id;
     }
 
-    public Offer(int id, String title, String description, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location, Object image) {
+    public Offer(int id, String title, String details, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location, Object image) {
         this.id = id;
         this.title = title;
-        this.description = description;
+        this.details = details;
         this.type = type;
         this.category = category;
         this.expirationDate = expirationDate;
@@ -41,13 +41,11 @@ public class Offer implements Serializable {
     public Offer(JSONObject jsonObj) {
         try {
             this.title = jsonObj.getString("title");
-            this.description = jsonObj.getString("description");
-            this.type = (Type)jsonObj.get("type");
-
-            this.category = (Category) jsonObj.get("category");
+            this.details = jsonObj.getString("details");
+            this.type = Type.getFromId((int)jsonObj.get("type"));
+            this.category = Category.getFromId((int) jsonObj.get("category"));
             this.expirationDate = jsonObj.getString("expirationDate");
-            this.store = new Store(jsonObj.getInt("store"));
-
+            this.store = new Store(jsonObj.getInt("store"),"");
             JSONObject location = jsonObj.getJSONObject("location");
             int latitude = location.getInt("latitude");
             int longitude = location.getInt("longitude");
@@ -69,11 +67,11 @@ public class Offer implements Serializable {
     }
 
     public String getDescription() {
-        return description;
+        return details;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String details) {
+        this.details = details;
     }
 
     public Type getType() {
@@ -138,8 +136,8 @@ public class Offer implements Serializable {
 
     public String toString(){
         Log.d(TAG, "getOffers()");
-        //String json = String.format("{title:%d, desc:%d, type:%d, category:%d, expirationDate:%d}", title, description, type, category, expirationDate);
-        String json = "{title:"+title+", desc:"+description+", type:"+type+", category:"+category+", expirationDate:"+expirationDate+"}";
+        //String json = String.format("{title:%d, desc:%d, type:%d, category:%d, expirationDate:%d}", title, details, type, category, expirationDate);
+        String json = "{title:"+title+", desc:"+details+", type:"+type+", category:"+category+", expirationDate:"+expirationDate+"}";
         return json;
     }
 }

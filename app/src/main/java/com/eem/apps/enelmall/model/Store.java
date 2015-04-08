@@ -5,10 +5,6 @@ public class Store {
     private String name;
     private double rating;
 
-    public Store(int id){
-        this.id = id;
-    }
-
     public Store(int id, String name) {
         this.id = id;
         this.name = name;

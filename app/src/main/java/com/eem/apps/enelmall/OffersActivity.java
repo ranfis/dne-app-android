@@ -26,6 +26,8 @@ import com.eem.apps.enelmall.model.OffersAdapter;
 import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.Type;
 import com.eem.apps.enelmall.model.api.DataApiCall;
+import com.eem.apps.enelmall.model.api.OffersBatch;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -83,10 +85,11 @@ public class OffersActivity extends ActionBarActivity {
         settingMall();
 
 
-        offers = new ArrayList<Offer>();
-        offers.add(new Offer(1, "2x1 en Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
-        offers.add(new Offer(2, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
-        offers.add(new Offer(3, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+//        offers = new ArrayList<Offer>();
+//        offers.add(new Offer(1, "2x1 en Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+//        offers.add(new Offer(2, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+//        offers.add(new Offer(3, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
+        offers = OffersBatch.getAll();
         oAdapter = new OffersAdapter(OffersActivity.this, offers);
         mOfferList = (ListView) findViewById(R.id.offerslist);
         mOfferList.setAdapter(oAdapter);

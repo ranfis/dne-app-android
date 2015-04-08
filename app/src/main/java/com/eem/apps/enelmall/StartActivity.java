@@ -1,4 +1,5 @@
 package com.eem.apps.enelmall;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +7,6 @@ import android.util.Log;
 import android.location.Location;
 import android.view.Window;
 import android.widget.Toast;
-
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.api.OffersBatch;
 import com.google.android.gms.common.ConnectionResult;
@@ -14,7 +14,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.location.LocationServices;
-
 import java.util.ArrayList;
 
 
@@ -32,11 +31,13 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
 
-
-
         // Connect to play services for location
         buildGoogleApiClient();
-        googleApiClient.connect();
+        //googleApiClient.connect(); TODO: uncomment this
+        //TODO: Move this to onConnect()
+        String urlString = "http://104.236.25.160/api/offers";
+//        new OffersBatch().execute(urlString);
+        OffersBatch.getMockOffers();
     }
 
 
@@ -84,11 +85,11 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     }
 
 
-    public static void goToOffers(ArrayList<Offer> offers){
+    public static void goToOffers(){
         Log.d(TAG,"goToOffers()");
-//        Intent offers = new Intent(self,OffersActivity.class);
-//        offers.putExtra(OFFERS, offersJson);
-//        self.startActivity(offers);
+        Intent offersActivity = new Intent(self,OffersActivity.class);
+        self.startActivity(offersActivity);
+        self.finish();
     }
 
     public Location getUserLocation(){
@@ -107,8 +108,8 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         String lat = String.valueOf(userLocation.getLatitude());
         String lon = String.valueOf(userLocation.getLatitude());
 
-        // Get offers
-        String urlString = "http://104.236.25.160/api/offers";
-        new OffersBatch().execute(urlString,lat,lon);
+        // Get offers TODO: Uncomment this
+//        String urlString = "http://104.236.25.160/api/offers";
+//        new OffersBatch().execute(urlString,lat,lon);
     }
 }

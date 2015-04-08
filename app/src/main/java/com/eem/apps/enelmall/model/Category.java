@@ -16,4 +16,8 @@ public enum Category {
     Category(int id){
         this.id = id;
     }
+
+    public static Category getFromId(int id) {
+        return values()[id];
+    }
 }
