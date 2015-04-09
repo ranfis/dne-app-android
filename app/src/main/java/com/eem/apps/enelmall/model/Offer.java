@@ -4,8 +4,8 @@ import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -21,12 +21,8 @@ public class Offer implements Serializable {
     private Map<String, Integer> location;
     private Object image;
 
-
-    public Offer(int id){
-        this.id = id;
-    }
-
     public Offer(int id, String title, String details, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location, Object image) {
+        Log.d(TAG,"Offer()");
         this.id = id;
         this.title = title;
         this.details = details;
@@ -39,21 +35,29 @@ public class Offer implements Serializable {
     }
 
     public Offer(JSONObject jsonObj) {
+        Log.d(TAG,"Offer()");
         try {
+            JSONObject store = jsonObj.getJSONObject("store");
+            JSONObject _location = jsonObj.getJSONObject("location");
+            int latitude = _location .getInt("latitude");
+            int longitude = _location .getInt("longitude");
+
             this.title = jsonObj.getString("title");
             this.details = jsonObj.getString("details");
-            this.type = Type.getFromId((int)jsonObj.get("type"));
+            this.type = Type.getFromId((int) jsonObj.get("type"));
             this.category = Category.getFromId((int) jsonObj.get("category"));
             this.expirationDate = jsonObj.getString("expirationDate");
-            this.store = new Store(jsonObj.getInt("store"),"");
-            JSONObject location = jsonObj.getJSONObject("location");
-            int latitude = location.getInt("latitude");
-            int longitude = location.getInt("longitude");
+            this.store = new Store(0,store.getString("name"));
+            this.location = new HashMap<>();
             this.location.put("latitude", latitude);
             this.location.put("longitude", longitude);
+            this.image = jsonObj.getString("image");
         }
         catch (JSONException ex){
-            System.err.println("Bad JSONObject");
+            Log.e(TAG,"Offer(): Bad JSONObject");
+        }
+        catch (IndexOutOfBoundsException ex){
+            Log.e(TAG, "Offer(): Bad type or category");
         }
     }
 
@@ -135,9 +139,22 @@ public class Offer implements Serializable {
     }
 
     public String toString(){
-        Log.d(TAG, "getOffers()");
+        Log.d(TAG, "toString()");
         //String json = String.format("{title:%d, desc:%d, type:%d, category:%d, expirationDate:%d}", title, details, type, category, expirationDate);
-        String json = "{title:"+title+", desc:"+details+", type:"+type+", category:"+category+", expirationDate:"+expirationDate+"}";
+        String json = "{\"id\":"+this.id+","
+                +"\"title\":\""+this.title+"\","
+                +"\"details\":\""+this.details+"\","
+                +"\"type\":"+this.type.getId()+","
+                +"\"category\":"+this.category.getId()+","
+                +"\"expirationDate\":\""+this.expirationDate+"\","
+                +"\"store\":{"
+                    +"\"name\":\""+this.store.getName()+"\""
+                +"},"
+                +"\"location\":{"
+                    +"\"latitude\":"+this.location.get("latitude")+","
+                    +"\"longitude\":"+this.location.get("longitude")
+                +"},"
+                +"\"image\":\""+this.image+"\"}";
         return json;
     }
 }

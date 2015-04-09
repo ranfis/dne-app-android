@@ -7,14 +7,13 @@ import android.util.Log;
 import android.location.Location;
 import android.view.Window;
 import android.widget.Toast;
-import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.MockOffers;
 import com.eem.apps.enelmall.model.api.OffersBatch;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.location.LocationServices;
-import java.util.ArrayList;
 
 
 public class StartActivity extends Activity implements ConnectionCallbacks, OnConnectionFailedListener {
@@ -33,11 +32,8 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
 
         // Connect to play services for location
         buildGoogleApiClient();
-        //googleApiClient.connect(); TODO: uncomment this
-        //TODO: Move this to onConnect()
-        String urlString = "http://104.236.25.160/api/offers";
-//        new OffersBatch().execute(urlString);
-        OffersBatch.getMockOffers();
+        googleApiClient.connect();
+//        OffersBatch.getMockOffers();
     }
 
 
@@ -72,6 +68,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     public void onConnectionFailed(ConnectionResult result) {
         Log.d(TAG,"onConnectionFailed()");
         Log.e(TAG, "onConnectionFailed(): ConnectionResult.getErrorCode() = " + result.getErrorCode());
+        new OffersBatch().execute("mock", MockOffers.getOffers(0)); //TODO: Show error to the user
     }
 
 
@@ -106,10 +103,11 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         Log.d(TAG,"getNearOffers()");
         Location userLocation = getUserLocation();
         String lat = String.valueOf(userLocation.getLatitude());
-        String lon = String.valueOf(userLocation.getLatitude());
+        String lon = String.valueOf(userLocation.getLongitude());
 
-        // Get offers TODO: Uncomment this
-//        String urlString = "http://104.236.25.160/api/offers";
-//        new OffersBatch().execute(urlString,lat,lon);
+        String urlString = "http://104.236.25.160/api/offers";
+        Log.i(TAG,"getNearOffers()/lat:"+lat);
+        Log.i(TAG,"getNearOffers()/lon:"+lon);
+        new OffersBatch().execute("mock", MockOffers.getOffers(0)); //TODO: Get offers from api
     }
 }

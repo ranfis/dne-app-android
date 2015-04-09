@@ -2,14 +2,12 @@ package com.eem.apps.enelmall.model.api;
 
 import android.util.Log;
 
-import com.eem.apps.enelmall.R;
 import com.eem.apps.enelmall.StartActivity;
 import com.eem.apps.enelmall.model.Category;
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.Type;
 import com.eem.apps.enelmall.util.JsonParser;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,9 +24,6 @@ public class OffersBatch extends DataApiCall {
             JSONArray jsonOffers = ((JSONArray)JsonParser.parse(result));
             for(int i=0;i<=jsonOffers.length()-1;i++){
                 Offer offer = new Offer( (JSONObject)jsonOffers.get(i) );
-                offer.setImage(R.drawable.pizza_example);
-                Store store = new Store(1,"Agora Mall");
-                offer.setStore(store);
                 offers.add(offer);
             }
 
@@ -40,7 +35,7 @@ public class OffersBatch extends DataApiCall {
     }
 
     public static void getMockOffers(){
-        offers.add(new Offer(1,"Oferta 1","Detalles 1", Type.DESCUENTO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), null, null));
+        offers.add(new Offer(1, "Oferta 1", "Detalles 1", Type.DESCUENTO, Category.BELLEZA, "23/23/12", new Store(1, "Agora Mall"), null, null));
         offers.add(new Offer(1,"Oferta 2","Detalles 2", Type.TIEMPO_LIMITADO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), null, null));
         offers.add(new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"), null, null));
         offers.add(new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"), null, null));

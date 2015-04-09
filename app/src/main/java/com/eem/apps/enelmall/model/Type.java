@@ -10,6 +10,10 @@ public enum Type {
         this.id = id;
     }
 
+    public int getId(){
+        return id;
+    }
+
     public static Type getFromId(int id) {
         return values()[id];
     }

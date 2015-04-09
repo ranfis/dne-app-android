@@ -17,6 +17,9 @@ public class DataApiCall extends AsyncTask<String, String, String> {
     @Override
     protected String doInBackground(String... params) {
         Log.d(TAG, "doInBackground()");
+        if(params[0] == "mock"){
+            return params[1];
+        }
         return getFromApi(params);
     }
 

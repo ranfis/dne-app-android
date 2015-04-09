@@ -30,7 +30,8 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         View item = inflater.inflate(R.layout.offers_list_items, null, true);
 
         ImageView imageOffer = (ImageView) item.findViewById(R.id.offer_image);
-        imageOffer.setImageResource((int) offers.get(position).getImage());
+//        imageOffer.setImageResource((int) offers.get(position).getImage());
+        imageOffer.setImageResource(R.drawable.pizza_example);
 
         TextView titleOffer = (TextView) item.findViewById(R.id.offer_title);
         titleOffer.setText(offers.get(position).getTitle());

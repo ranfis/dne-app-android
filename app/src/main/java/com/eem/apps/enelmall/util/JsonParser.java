@@ -11,7 +11,7 @@ public final class JsonParser {
     protected static final String TAG = "[JsonParser]";
 
     public static Object parse(String json){
-        Log.d(TAG, "parse()");
+        Log.d(TAG, "parse()"+json);
         try{
             Object jsonObj = null;
             switch (json.charAt(0)){
