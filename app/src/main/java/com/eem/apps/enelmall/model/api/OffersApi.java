@@ -13,6 +13,7 @@ public class OffersApi extends DataApiCall {
     protected static final String TAG = "[OffersApi]";
     protected static final String API_URL = "http://104.236.25.160/api/offers";
     public static ArrayList<Offer> offers = new ArrayList<>();
+    public static Offer offer;
 
     protected void onPostExecute(String result) {
         Log.d(TAG, "onPostExecute()");
@@ -31,5 +32,13 @@ public class OffersApi extends DataApiCall {
 
     public static ArrayList<Offer> getAll(){
         return offers;
+    }
+
+    public static void setOffer(Offer offerp) {
+        offer = offerp;
+    }
+
+    public static Offer getOffer() {
+        return offer;
     }
 }

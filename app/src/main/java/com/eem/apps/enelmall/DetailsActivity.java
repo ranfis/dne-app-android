@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.api.OffersBatch;
 
 
 public class DetailsActivity extends ActionBarActivity {
@@ -17,12 +18,16 @@ public class DetailsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        // Getting Offer from static method to avoid using Parcelable objects
+        Offer offer = OffersBatch.getOffer();
 
-        Intent i = getIntent();
-        Offer offer = (Offer) i.getSerializableExtra("Offer");
-        TextView demo = (TextView) findViewById(R.id.textView2);
-        demo.setText(offer.getTitle());
+        // Setting title in the actionbar from the offer
+        setTitle(offer.getTitle());
+
+
     }
+
+
 
 
     @Override

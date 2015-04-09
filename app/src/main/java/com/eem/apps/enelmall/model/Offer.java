@@ -1,5 +1,7 @@
 package com.eem.apps.enelmall.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Offer implements Serializable {
+public class Offer  {
     protected static final String TAG = "[Offer]";
     private int id;
     private String title;
@@ -156,4 +158,6 @@ public class Offer implements Serializable {
                 +"\"image\":\""+this.image+"\"}";
         return json;
     }
+
+
 }

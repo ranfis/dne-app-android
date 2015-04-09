@@ -79,9 +79,9 @@ public class OffersActivity extends ActionBarActivity {
         mOfferList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Posicion: " + position, Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(getApplicationContext(), DetailsActivity.class);
-                i.putExtra("Offer", offers.get(position));
+                //Toast.makeText(OffersActivity.this, "Posicion: " + position, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(OffersActivity.this, DetailsActivity.class);
+                OffersBatch.setOffer(offers.get(position));
                 startActivity(i);
             }
         });
