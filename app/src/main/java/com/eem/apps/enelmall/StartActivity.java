@@ -8,7 +8,7 @@ import android.location.Location;
 import android.view.Window;
 import android.widget.Toast;
 import com.eem.apps.enelmall.model.MockOffers;
-import com.eem.apps.enelmall.model.api.OffersBatch;
+import com.eem.apps.enelmall.model.api.OffersApi;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
@@ -29,7 +29,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         self = this;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-
+j+
         // Connect to play services for location
         buildGoogleApiClient();
         googleApiClient.connect();
@@ -68,7 +68,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
     public void onConnectionFailed(ConnectionResult result) {
         Log.d(TAG,"onConnectionFailed()");
         Log.e(TAG, "onConnectionFailed(): ConnectionResult.getErrorCode() = " + result.getErrorCode());
-        new OffersBatch().execute("mock", MockOffers.getOffers(0)); //TODO: Show error to the user
+        new OffersApi().execute("mock", MockOffers.getOffers(0)); //TODO: Show error to the user
     }
 
 
@@ -105,9 +105,8 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         String lat = String.valueOf(userLocation.getLatitude());
         String lon = String.valueOf(userLocation.getLongitude());
 
-        String urlString = "http://104.236.25.160/api/offers";
         Log.i(TAG,"getNearOffers()/lat:"+lat);
         Log.i(TAG,"getNearOffers()/lon:"+lon);
-        new OffersBatch().execute("mock", MockOffers.getOffers(0)); //TODO: Get offers from api
+        new OffersApi().execute("mock", MockOffers.getOffers(0)); //TODO: Get offers from api
     }
 }

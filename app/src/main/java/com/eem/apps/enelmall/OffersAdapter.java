@@ -1,15 +1,13 @@
-package com.eem.apps.enelmall.model;
+package com.eem.apps.enelmall;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.eem.apps.enelmall.R;
+import com.eem.apps.enelmall.model.Offer;
 
 import java.util.ArrayList;
 
@@ -29,10 +27,9 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         LayoutInflater inflater = context.getLayoutInflater();
         View item = inflater.inflate(R.layout.offers_list_items, null, true);
 
-        ImageView imageOffer = (ImageView) item.findViewById(R.id.offer_image);
 //        imageOffer.setImageResource((int) offers.get(position).getImage());
-//        imageOffer.setImageResource(R.drawable.pizza_example);
-        imageOffer.setImageBitmap( (Bitmap) offers.get(position).getImage());
+//        imageOffer.setImageResource(R.drawable.eem_logo);
+//        imageOffer.setImageBitmap((Bitmap) offers.get(position).getImage());
 
         TextView titleOffer = (TextView) item.findViewById(R.id.offer_title);
         titleOffer.setText(offers.get(position).getTitle());

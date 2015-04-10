@@ -18,8 +18,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/offer_image"
-            android:src="@drawable/pizza_example" />
+            android:id="@+id/offer_image" />
 
         <LinearLayout
             android:orientation="horizontal"

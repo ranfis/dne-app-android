@@ -4,10 +4,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
-
-import com.eem.apps.enelmall.StartActivity;
+import com.eem.apps.enelmall.OffersActivity;
 import com.eem.apps.enelmall.model.Offer;
-import com.eem.apps.enelmall.model.api.OffersBatch;
+import com.eem.apps.enelmall.model.api.OffersApi;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
@@ -28,7 +27,7 @@ public class BMFactory extends AsyncTask<Offer, Integer, String> {
                 System.out.println(u);
                 URL url = new URL( u );
                 Bitmap bitmap = getImageBitmapFromUrl( url );
-                OffersBatch.getAll().get(i).setImage(bitmap);
+                OffersApi.getAll().get(i).setImage(bitmap);
                 System.out.println(bitmap);
             }
         }
@@ -36,6 +35,11 @@ public class BMFactory extends AsyncTask<Offer, Integer, String> {
             Log.e(TAG,"doInBackground()/Bad URL");
         }
         return "o";
+    }
+
+    protected void onPostExecute(String result) {
+        Log.d(TAG, "onPostExecute()");
+        OffersActivity.updateImages();
     }
 
 

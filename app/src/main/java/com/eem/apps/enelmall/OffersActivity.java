@@ -12,19 +12,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.eem.apps.enelmall.model.Offer;
-import com.eem.apps.enelmall.model.OffersAdapter;
-import com.eem.apps.enelmall.model.api.OffersBatch;
+import com.eem.apps.enelmall.model.api.OffersApi;
 import com.eem.apps.enelmall.util.BMFactory;
-
+import android.graphics.Bitmap;
 import java.util.ArrayList;
 
 
 public class OffersActivity extends ActionBarActivity {
-
+    private static OffersActivity self;
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
     private String mActivityTitle;
@@ -41,8 +41,7 @@ public class OffersActivity extends ActionBarActivity {
         Log.d("OffersActivity", "onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offers);
-
-
+        self = this;
         mDrawerList = (ListView)findViewById(R.id.navList);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
@@ -76,7 +75,7 @@ public class OffersActivity extends ActionBarActivity {
 //        offers.add(new Offer(1, "2x1 en Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
 //        offers.add(new Offer(2, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
 //        offers.add(new Offer(3, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
-        offers = OffersBatch.getAll();
+        offers = OffersApi.getAll();
         new BMFactory().execute( offers.toArray( new Offer[offers.size()] ) ); //TODO: hmmmm :/
         oAdapter = new OffersAdapter(OffersActivity.this, offers);
         mOfferList = (ListView) findViewById(R.id.offerslist);
@@ -174,7 +173,14 @@ public class OffersActivity extends ActionBarActivity {
 
     }
 
-    @Override
+    public static void updateImages() {
+        ImageView imageOffer = (ImageView) self.findViewById(R.id.offer_image);
+        ArrayList<Offer> offers = OffersApi.getAll();
+        for (int i = 0; i < 3; i++) {
+            imageOffer.setImageBitmap((Bitmap) offers.get(i).getImage());
+        }
+    }
+
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
