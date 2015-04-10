@@ -29,7 +29,6 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
         self = this;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_start);
-j+
         // Connect to play services for location
         buildGoogleApiClient();
         googleApiClient.connect();
