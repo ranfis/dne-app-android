@@ -1,6 +1,7 @@
 package com.eem.apps.enelmall;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,10 +9,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.eem.apps.enelmall.model.Offer;
+import com.squareup.picasso.Picasso;
+import pl.droidsonroids.gif.GifDrawable;
 
 import java.util.ArrayList;
 
 public class OffersAdapter extends ArrayAdapter<Offer> {
+    protected static final String TAG = "[StartActivity]";
 
     private Activity context;
     private ArrayList<Offer> offers;
@@ -26,10 +30,20 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View item = inflater.inflate(R.layout.offers_list_items, null, true);
+        ImageView imageOffer = (ImageView) item.findViewById(R.id.offer_image);
+        GifDrawable gifFromResource = null;
+        try {
+            gifFromResource = new GifDrawable( OffersActivity.self.getResources(), R.drawable.ring );
+        }
+        catch (Exception ex){
+            Log.d(TAG, "getView()/Error loading spinner");
+        }
 
-//        imageOffer.setImageResource((int) offers.get(position).getImage());
-//        imageOffer.setImageResource(R.drawable.eem_logo);
-//        imageOffer.setImageBitmap((Bitmap) offers.get(position).getImage());
+        Picasso.with(context)
+                .load( (String) offers.get(position).getImage() )
+                .placeholder(gifFromResource)
+                .error(R.drawable.no_image)
+                .into(imageOffer);
 
         TextView titleOffer = (TextView) item.findViewById(R.id.offer_title);
         titleOffer.setText(offers.get(position).getTitle());

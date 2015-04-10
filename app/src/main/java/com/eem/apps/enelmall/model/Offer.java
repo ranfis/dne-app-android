@@ -1,9 +1,6 @@
 package com.eem.apps.enelmall.model;
 
 import android.util.Log;
-
-import com.eem.apps.enelmall.util.BMFactory;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.Serializable;
