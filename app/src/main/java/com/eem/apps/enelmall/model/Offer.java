@@ -2,6 +2,8 @@ package com.eem.apps.enelmall.model;
 
 import android.util.Log;
 
+import com.eem.apps.enelmall.util.BMFactory;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.Serializable;
@@ -41,7 +43,6 @@ public class Offer implements Serializable {
             JSONObject _location = jsonObj.getJSONObject("location");
             int latitude = _location .getInt("latitude");
             int longitude = _location .getInt("longitude");
-
             this.title = jsonObj.getString("title");
             this.details = jsonObj.getString("details");
             this.type = Type.getFromId((int) jsonObj.get("type"));
@@ -56,6 +57,7 @@ public class Offer implements Serializable {
         catch (JSONException ex){
             Log.e(TAG,"Offer(): Bad JSONObject");
         }
+
         catch (IndexOutOfBoundsException ex){
             Log.e(TAG, "Offer(): Bad type or category");
         }

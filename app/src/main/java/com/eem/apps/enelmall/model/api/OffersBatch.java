@@ -1,7 +1,6 @@
 package com.eem.apps.enelmall.model.api;
 
 import android.util.Log;
-
 import com.eem.apps.enelmall.StartActivity;
 import com.eem.apps.enelmall.model.Category;
 import com.eem.apps.enelmall.model.Offer;
@@ -26,7 +25,6 @@ public class OffersBatch extends DataApiCall {
                 Offer offer = new Offer( (JSONObject)jsonOffers.get(i) );
                 offers.add(offer);
             }
-
             StartActivity.goToOffers();
         }
         catch(JSONException err){

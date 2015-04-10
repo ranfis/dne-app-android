@@ -16,10 +16,10 @@ public class MockOffers {
 
 
     static Offer[] offers = {
-            new Offer(1,"Oferta 1","Detalles 1", Type.DESCUENTO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), location , R.drawable.pizza_example),
-            new Offer(1,"Oferta 2","Detalles 2", Type.TIEMPO_LIMITADO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), location, R.drawable.pizza_example),
-            new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"), location, R.drawable.pizza_example),
-            new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"),location,R.drawable.pizza_example)
+            new Offer(1,"Oferta 1","Detalles 1", Type.DESCUENTO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), location , "http://www.iwallfinder.com/files/55/second-series-camera-sample-figures-27007.jpg"),
+            new Offer(1,"Oferta 2","Detalles 2", Type.TIEMPO_LIMITADO, Category.BELLEZA,"23/23/12",new Store(1,"Agora Mall"), location, "http://www.iwallfinder.com/files/55/second-series-camera-sample-figures-27007.jpg"),
+            new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"), location, "http://www.iwallfinder.com/files/55/second-series-camera-sample-figures-27007.jpg"),
+            new Offer(1,"Oferta 3","Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA,"23/23/12",new Store(2,"Sambil"),location,"http://www.iwallfinder.com/files/55/second-series-camera-sample-figures-27007.jpg")
     };
 
     public static String getOffers(int delay){

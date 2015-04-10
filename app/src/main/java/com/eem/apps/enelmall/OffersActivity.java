@@ -2,9 +2,7 @@ package com.eem.apps.enelmall;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,28 +10,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.eem.apps.enelmall.model.Category;
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.OffersAdapter;
-import com.eem.apps.enelmall.model.Store;
-import com.eem.apps.enelmall.model.Type;
-import com.eem.apps.enelmall.model.api.DataApiCall;
 import com.eem.apps.enelmall.model.api.OffersBatch;
-
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.eem.apps.enelmall.util.BMFactory;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class OffersActivity extends ActionBarActivity {
@@ -90,6 +77,7 @@ public class OffersActivity extends ActionBarActivity {
 //        offers.add(new Offer(2, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
 //        offers.add(new Offer(3, "2x1 Pizza los Viernes", "Esta es una descripcion", Type.DESCUENTO, Category.BELLEZA, "20/12/2015", new Store(1, "Pizzarelli"), null, (int) R.drawable.pizza_example));
         offers = OffersBatch.getAll();
+        new BMFactory().execute( offers.toArray( new Offer[offers.size()] ) ); //TODO: hmmmm :/
         oAdapter = new OffersAdapter(OffersActivity.this, offers);
         mOfferList = (ListView) findViewById(R.id.offerslist);
         mOfferList.setAdapter(oAdapter);
