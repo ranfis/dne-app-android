@@ -1,13 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.eem.apps.enelmall.DetailsActivity"
-    android:id="@+id/containerGeneral">
+    android:id="@+id/containerGeneral"
+    android:padding="@dimen/activity_with_cards">
 
 
     <ScrollView
@@ -20,6 +17,64 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/containerScroll">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/containerStore"
+                android:gravity="center_vertical|center_horizontal"
+                android:background="@drawable/layer_card_background"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:paddingBottom="2dp">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/containerDetailsStore">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:id="@+id/storePhoto"
+                        android:layout_weight="2"
+                        android:background="#000000"
+                        android:adjustViewBounds="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/store_example" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/containerCard">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:id="@+id/containerTitleStore"
+                            android:layout_marginBottom="0dp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Conomanias para machos"
+                                android:id="@+id/titleStore"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -197,107 +252,6 @@
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/containerStore"
-                android:gravity="center_vertical|center_horizontal"
-                android:background="@drawable/layer_card_background"
-                android:orientation="vertical"
-                android:layout_marginBottom="8dp"
-                android:paddingBottom="2dp">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/containerDetailsStore">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="125dp"
-                        android:id="@+id/storePhoto"
-                        android:layout_weight="2"
-                        android:background="#000000"
-                        android:adjustViewBounds="false"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/store_example" />
-
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="fill_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:id="@+id/containerCard">
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:id="@+id/containerTitleStore"
-                            android:layout_marginBottom="0dp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="16dp"
-                            android:paddingRight="16dp"
-                            android:paddingBottom="10dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:text="Conomanias para machos"
-                                android:id="@+id/titleStore"
-                                android:textSize="20sp" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="fill_parent"
-                            android:layout_height="0.5dp"
-                            android:background="#CACAD9"
-                            android:layout_weight="0" />
-
-                        <LinearLayout
-                            android:orientation="horizontal"
-                            style="?android:attr/buttonBarButtonStyle"
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0"
-                            android:padding="0dp"
-                            android:id="@+id/containerCardsButtons"
-                            android:showDividers="beginning"
-                            android:gravity="center_vertical|center_horizontal"
-                            android:clickable="true">
-
-                            <LinearLayout
-                                android:orientation="horizontal"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:clickable="false"
-                                android:id="@+id/buttonContainer"
-                                android:padding="8dp"
-                                android:gravity="center_vertical|center_horizontal"
-                                android:layout_gravity="center_vertical">
-
-                                <TextView
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent"
-                                    android:textAppearance="?android:attr/textAppearanceMedium"
-                                    android:clickable="false"
-                                    android:text="Información"
-                                    android:id="@+id/buttonInfoStore"
-                                    android:textSize="12sp"
-                                    android:gravity="center_vertical|center_horizontal"
-                                    android:longClickable="false"
-                                    android:layout_gravity="center_vertical" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

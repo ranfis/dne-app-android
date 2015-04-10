@@ -5,9 +5,11 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.api.OffersBatch;
 
 
@@ -25,9 +27,34 @@ public class DetailsActivity extends ActionBarActivity {
         setTitle(offer.getTitle());
 
 
+
+        settingDetailsOffer(offer);
+        settingDetailsStore(offer.getStore());
     }
 
+    private void settingDetailsOffer(Offer offer) {
+        //ImageView offerPhoto = (ImageView) findViewById(R.id.photoOffer); //TODO
+        TextView titleOffer = (TextView) findViewById(R.id.titleOffer);
+        TextView categoryOffer = (TextView) findViewById(R.id.categoryOffer);
+        TextView detailsOffer = (TextView) findViewById(R.id.detailsOffer);
+        //ImageView typeOffer = (ImageView) findViewById(R.id.typeOffer); //TODO
+        TextView expirationDateOffer = (TextView) findViewById(R.id.expTime);
 
+
+        titleOffer.setText(offer.getTitle());
+        categoryOffer.setText(offer.getCategory().getNameFromID(offer.getCategory().getId()).toUpperCase());
+        detailsOffer.setText(offer.getDescription());
+        expirationDateOffer.setText(offer.getExpirationDate());
+
+    }
+
+    private void settingDetailsStore(Store store) {
+        ImageView storePhoto = (ImageView) findViewById(R.id.storePhoto);
+        TextView titleStore = (TextView) findViewById(R.id.titleStore);
+
+        titleStore.setText(store.getName());
+
+    }
 
 
     @Override

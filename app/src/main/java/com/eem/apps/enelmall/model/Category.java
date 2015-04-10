@@ -24,4 +24,38 @@ public enum Category {
     public static Category getFromId(int id) {
         return values()[id];
     }
+
+    public String getNameFromID(int id) {
+        String category = null;
+        switch(id) {
+            case 0:
+                category = "zapatos";
+                break;
+            case 1:
+                category = "comida";
+                break;
+            case 2:
+                category = "ropa";
+                break;
+            case 3:
+                category = "masculina";
+                break;
+            case 4:
+                category = "ropa_femenina";
+                break;
+            case 5:
+                category = "tecnologia";
+                break;
+            case 6:
+                category = "belleza";
+                break;
+            case 7:
+                category = "salud";
+                break;
+        }
+
+        return category;
+    }
+
+
 }
