@@ -1,18 +1,27 @@
 package com.eem.apps.enelmall;
 
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.api.OffersApi;
 
+import org.w3c.dom.Text;
+
 
 public class StoreDetailsActivity extends ActionBarActivity {
+
+    TextView phoneStore;
+    TextView webStore;
+    TextView fbStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +33,19 @@ public class StoreDetailsActivity extends ActionBarActivity {
 
         settingCardsStore(store);
 
+        settingStoreButtons(store);
+
+    }
+
+    private void settingStoreButtons(Store store) {
+        phoneStore = (TextView) findViewById(R.id.buttonPhoneText);
+        phoneStore.setText("8095521650"); //TODO get the phone from store
+
+        webStore = (TextView) findViewById(R.id.buttonWebsiteText);
+        webStore.setText("www.losgamers.com");
+
+        fbStore = (TextView) findViewById(R.id.buttonFacebookText);
+        fbStore.setText("Losgamerspuntocom");
     }
 
     private void settingCardsStore(Store store) {
@@ -34,6 +56,23 @@ public class StoreDetailsActivity extends ActionBarActivity {
         photoStoreDetails.setImageResource(R.drawable.store_example);
     }
 
+    public void buttonCall(View view) {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:"+phoneStore.getText().toString()));
+        startActivity(intent);
+    }
+
+    public void buttonWebsite(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://"+webStore.getText().toString()));
+        startActivity(intent);
+    }
+
+    public void buttonFacebook(View view) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("http://www.facebook.com/"+fbStore.getText().toString()));
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

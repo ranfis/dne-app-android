@@ -65,6 +65,38 @@
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/containerDescriptionStore"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/layer_card_background"
+                android:padding="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Descripción"
+                    android:id="@+id/descriptionStoreTitle"
+                    android:gravity="left"
+                    android:textColor="#5E5E5E"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Somos una tienda dedicada a la venta de ropa deportiva de marcas reconocidas como Adidas, Nike y Champions."
+                    android:id="@+id/descriptionTextStore"
+                    android:textColor="#A9A9A9"
+                    android:textIsSelectable="false"
+                    android:gravity="fill_horizontal"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/containerScheduleStore"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/layer_card_background"
@@ -206,12 +238,13 @@
                         android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:id="@+id/button1">
+                        android:id="@+id/buttonPhone"
+                        android:onClick="buttonCall">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/buttonImage1"
+                            android:id="@+id/buttonImagePhone"
                             android:src="@android:drawable/ic_menu_call"
                             android:layout_marginRight="16dp" />
 
@@ -219,8 +252,58 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Medium Text"
-                            android:id="@+id/buttonText1"
+                            android:text="Llamar"
+                            android:id="@+id/buttonPhoneText"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/buttonWebsite"
+                        android:onClick="buttonWebsite">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/buttonWebsiteImage"
+                            android:src="@drawable/ic_action_web_site"
+                            android:layout_marginRight="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Sitio web"
+                            android:id="@+id/buttonWebsiteText"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/buttonFacebook"
+                        android:onClick="buttonFacebook">
+
+                        <ImageView
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:id="@+id/buttonFacebookImage"
+                            android:src="@drawable/circle_facebook"
+                            android:layout_marginRight="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Facebook"
+                            android:id="@+id/buttonFacebookText"
                             android:textSize="14sp"
                             android:layout_gravity="center_vertical" />
                     </LinearLayout>
