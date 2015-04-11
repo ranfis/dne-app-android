@@ -41,4 +41,5 @@
     <string name="title_activity_details">DetailsActivity</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_store_details">StoreDetailsActivity</string>
 </resources>

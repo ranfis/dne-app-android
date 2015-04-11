@@ -1,0 +1,234 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_with_cards"
+    android:paddingRight="@dimen/activity_with_cards"
+    android:paddingTop="@dimen/activity_with_cards"
+    android:paddingBottom="@dimen/activity_with_cards"
+    android:id="@+id/containerGneralStore"
+    android:orientation="vertical"
+    tools:context="com.eem.apps.enelmall.StoreDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/containerStoreScroll"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/containerCardsStore">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/containerTopStore"
+                android:gravity="center"
+                android:background="@drawable/layer_card_background"
+                android:paddingRight="0dp"
+                android:paddingLeft="0dp"
+                android:layout_marginBottom="8dp">
+                <!--    android:background="#E0EEEE" -->
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="175dp"
+                    android:id="@+id/photoStoreDetails"
+                    android:background="#000000"
+                    android:layout_marginRight="0dp"
+                    android:src="@drawable/zapato_example"
+                    android:scaleType="centerCrop" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center_vertical"
+                    android:id="@+id/containerTextStore"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="O6 Store"
+                        android:id="@+id/titleStoreDetails"
+                        android:gravity="left|center_vertical|center_horizontal"
+                        android:textSize="24sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/containerScheduleStore"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/layer_card_background"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Horario"
+                    android:id="@+id/scheduleText"
+                    android:gravity="left"
+                    android:textColor="#5E5E5E"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/containerScheduleDistributio">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/containerScheduleText">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Lunes a Viernes"
+                            android:id="@+id/scheduleStore"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Sabado y Domingo"
+                            android:id="@+id/scheduleStore2"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Días feriados"
+                            android:id="@+id/scheduleStore3"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/containerScheduleTime">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="8:00 AM - 5:00 PM"
+                            android:id="@+id/scheduleStoreTime"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="9:00 AM - 1:00 PM"
+                            android:id="@+id/scheduleStoreTime2"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="9:00 AM - 3:00 PM"
+                            android:id="@+id/scheduleStoreTime3"
+                            android:textColor="#A9A9A9"
+                            android:textIsSelectable="false"
+                            android:gravity="fill_horizontal"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/containerContact"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/layer_card_background"
+                android:padding="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Información de contacto"
+                    android:id="@+id/contactText"
+                    android:gravity="left"
+                    android:textColor="#5E5E5E"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/containerContactButtons">
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/button1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/buttonImage1"
+                            android:src="@android:drawable/ic_menu_call"
+                            android:layout_marginRight="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Medium Text"
+                            android:id="@+id/buttonText1"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

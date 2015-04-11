@@ -3,6 +3,7 @@ package com.eem.apps.enelmall.model.api;
 import android.util.Log;
 import com.eem.apps.enelmall.StartActivity;
 import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.util.JsonParser;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +15,7 @@ public class OffersApi extends DataApiCall {
     protected static final String API_URL = "http://104.236.25.160/api/offers";
     public static ArrayList<Offer> offers = new ArrayList<>();
     public static Offer offer;
+    public static Store store;
 
     protected void onPostExecute(String result) {
         Log.d(TAG, "onPostExecute()");
@@ -40,5 +42,13 @@ public class OffersApi extends DataApiCall {
 
     public static Offer getOffer() {
         return offer;
+    }
+
+    public static void setStore(Store storee) {
+        store = storee;
+    }
+
+    public static Store getStore() {
+        return store;
     }
 }
