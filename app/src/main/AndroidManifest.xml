@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eem.apps.enelmall"
     android:versionCode="1"
-    android:versionName="0.1.6">
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    android:versionName="0.1.6" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -36,6 +37,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eem.apps.enelmall.OffersActivity" />
+        </activity>
+        <activity
+            android:name=".StoreDetailsActivity"
+            android:label="@string/title_activity_store_details"
+            android:parentActivityName=".DetailsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.eem.apps.enelmall.DetailsActivity" />
         </activity>
     </application>
 

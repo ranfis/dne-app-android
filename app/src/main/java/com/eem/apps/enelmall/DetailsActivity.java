@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
@@ -59,6 +60,14 @@ public class DetailsActivity extends ActionBarActivity {
         titleStore.setText(store.getName());
 
     }
+
+    public void storeButton(View view) {
+        OffersApi.setStore(OffersApi.getOffer().getStore());
+        startActivity(new Intent(getApplicationContext(), StoreDetailsActivity.class));
+    }
+
+
+
 
 
     @Override

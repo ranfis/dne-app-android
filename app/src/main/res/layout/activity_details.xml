@@ -206,7 +206,9 @@
                 android:background="@drawable/selector"
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp"
-                android:paddingBottom="2dp">
+                android:paddingBottom="2dp"
+                android:nestedScrollingEnabled="true"
+                android:onClick="storeButton">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -234,7 +236,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/containerCard"
-                        android:clickable="true">
+                        android:clickable="true"
+                        android:onClick="storeButton">
 
                         <LinearLayout
                             android:orientation="vertical"
