@@ -1,16 +1,18 @@
 package com.eem.apps.enelmall;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import com.squareup.picasso.Picasso;
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.Store;
-import com.eem.apps.enelmall.model.api.OffersBatch;
+import com.eem.apps.enelmall.model.api.OffersApi;
 
 
 public class DetailsActivity extends ActionBarActivity {
@@ -21,7 +23,7 @@ public class DetailsActivity extends ActionBarActivity {
         setContentView(R.layout.activity_details);
 
         // Getting Offer from static method to avoid using Parcelable objects
-        Offer offer = OffersBatch.getOffer();
+        Offer offer = OffersApi.getOffer();
 
         // Setting title in the actionbar from the offer
         setTitle(offer.getTitle());
@@ -33,13 +35,15 @@ public class DetailsActivity extends ActionBarActivity {
     }
 
     private void settingDetailsOffer(Offer offer) {
-        //ImageView offerPhoto = (ImageView) findViewById(R.id.photoOffer); //TODO
+        ImageView offerPhoto = (ImageView) findViewById(R.id.photoOffer);
         TextView titleOffer = (TextView) findViewById(R.id.titleOffer);
         TextView categoryOffer = (TextView) findViewById(R.id.categoryOffer);
         TextView detailsOffer = (TextView) findViewById(R.id.detailsOffer);
         //ImageView typeOffer = (ImageView) findViewById(R.id.typeOffer); //TODO
         TextView expirationDateOffer = (TextView) findViewById(R.id.expTime);
 
+
+        offerPhoto.setImageDrawable( (Drawable) offer.getfImageDetails());
 
         titleOffer.setText(offer.getTitle());
         categoryOffer.setText(offer.getCategory().getNameFromID(offer.getCategory().getId()).toUpperCase());

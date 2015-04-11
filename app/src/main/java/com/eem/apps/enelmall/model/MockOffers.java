@@ -12,10 +12,10 @@ public class MockOffers {
 
 
     static Offer[] offers = {
-            new Offer(1, "Oferta 1", "Detalles 1", Type.DESCUENTO, Category.BELLEZA, "23/23/12", new Store(1, "Agora Mall"), location, "http://daxueconsulting.com/wp-content/uploads/2012/07/womens-clothes2.jpg"),
-            new Offer(1, "Oferta 2", "Detalles 2", Type.TIEMPO_LIMITADO, Category.BELLEZA, "23/23/12", new Store(1, "Agora Mall"), location, "http://www.tenpin.org.au/uploads/RTEmagicC_House_Shoes_01.jpg.jpg"),
-            new Offer(1, "Oferta 3", "Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA, "23/23/12", new Store(2, "Sambil"), location, "http://machopicture.com/images/autumn-dresses/9301-fashion-clothes-for-women.jpg"),
-            new Offer(1, "Oferta 4", "Detalles 4", Type.TIEMPO_LIMITADO, Category.COMIDA, "23/23/12", new Store(2, "Sambil"), location, "https://s3.amazonaws.com/ODNUploads/5431308c0d073Cheese_Pizza_Pepperoni.jpsg")
+            new Offer(1, "Oferta 1", "Detalles 1", Type.DESCUENTO, Category.BELLEZA, "23/23/12", new Store(1, "O6 Store"), location, "http://daxueconsulting.com/wp-content/uploads/2012/07/womens-clothes2.jpg"),
+            new Offer(1, "Oferta 2", "Detalles 2", Type.TIEMPO_LIMITADO, Category.BELLEZA, "23/23/12", new Store(1, "LosGamers.com"), location, "http://www.tenpin.org.au/uploads/RTEmagicC_House_Shoes_01.jpg.jpg"),
+            new Offer(1, "Oferta 3", "Detalles 3", Type.TIEMPO_LIMITADO, Category.COMIDA, "23/23/12", new Store(2, "EnergySystem"), location, "http://machopicture.com/images/autumn-dresses/9301-fashion-clothes-for-women.jpg"),
+            new Offer(1, "Oferta 4", "Detalles 4", Type.TIEMPO_LIMITADO, Category.COMIDA, "23/23/12", new Store(2, "Electro Lama"), location, "https://s3.amazonaws.com/ODNUploads/5431308c0d073Cheese_Pizza_Pepperoni.jpsg")
     };
 
     public static String getOffers(int delay){

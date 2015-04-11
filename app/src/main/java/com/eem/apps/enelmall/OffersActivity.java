@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,7 +82,8 @@ public class OffersActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(OffersActivity.this, "Posicion: " + position, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(OffersActivity.this, DetailsActivity.class);
-                OffersBatch.setOffer(offers.get(position));
+                offers.get(position).setfImageDetails(((ImageView)view.findViewById(R.id.offer_image)).getDrawable());
+                OffersApi.setOffer(offers.get(position));
                 startActivity(i);
             }
         });

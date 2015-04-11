@@ -21,6 +21,7 @@ public class Offer  {
     private Store store;
     private Map<String, Integer> location;
     private Object image;
+    private Object fImageDetails;
 
     public Offer(int id, String title, String details, Type type, Category category, String expirationDate, Store store, Map<String, Integer> location, Object image) {
         Log.d(TAG,"Offer()");
@@ -137,6 +138,14 @@ public class Offer  {
 
     public void setImage(Object image) {
         this.image = image;
+    }
+
+    public Object getfImageDetails() {
+        return fImageDetails;
+    }
+
+    public void setfImageDetails(Object fImageDetails) {
+        this.fImageDetails = fImageDetails;
     }
 
     public String toString(){
