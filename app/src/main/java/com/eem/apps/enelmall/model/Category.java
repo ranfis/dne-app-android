@@ -2,14 +2,28 @@ package com.eem.apps.enelmall.model;
 
 
 public enum Category {
-    ZAPATOS(0),
-    COMIDA(1),
-    ROPA(2),
-    MASCULINA(3),
-    ROPA_FEMENINA(4),
-    TECNOLOGIA(5),
-    BELLEZA(6),
-    SALUD(7);
+    Electronicos(1),
+    Postres(2),
+    Hogar(3),
+    Caballeros(4),
+    Damas(5),
+    Niños(6),
+    Zapatos(7),
+    Viajes(8),
+    Entretenimiento(9),
+    Opticas(10),
+    Relojerias(11),
+    Deportivo(12),
+    Heladeria(13),
+    Joyeria(14),
+    Cosmeticos(15),
+    Restaurants(16),
+    Belleza(17),
+    Servicios(18),
+    Supermercado(19),
+    Farmacias(20);
+
+
 
     private int id;
 
@@ -28,32 +42,67 @@ public enum Category {
     public String getNameFromID(int id) {
         String category = null;
         switch(id) {
-            case 0:
-                category = "zapatos";
-                break;
             case 1:
-                category = "comida";
+                category = "Electronicos";
                 break;
             case 2:
-                category = "ropa";
+                category = "Postres";
                 break;
             case 3:
-                category = "masculina";
+                category = "Hogar";
                 break;
             case 4:
-                category = "ropa_femenina";
+                category = "Caballeros";
                 break;
             case 5:
-                category = "tecnologia";
+                category = "Damas";
                 break;
             case 6:
-                category = "belleza";
+                category = "Niños";
                 break;
             case 7:
-                category = "salud";
+                category = "Zapatos";
+                break;
+            case 8:
+                category = "Viajes";
+                break;
+            case 9:
+                category = "Entretenimiento";
+                break;
+            case 10:
+                category = "Opticas";
+                break;
+            case 11:
+                category = "Relojerias";
+                break;
+            case 12:
+                category = "Deportivo";
+                break;
+            case 13:
+                category = "Heladeria";
+                break;
+            case 14:
+                category = "Joyeria";
+                break;
+            case 15:
+                category = "Cosmeticos";
+                break;
+            case 16:
+                category = "Restaurants";
+                break;
+            case 17:
+                category = "Belleza";
+                break;
+            case 18:
+                category = "Servicios";
+                break;
+            case 19:
+                category = "Supermercado";
+                break;
+            case 20:
+                category = "Farmacias";
                 break;
         }
-
         return category;
     }
 
