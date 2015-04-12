@@ -91,8 +91,10 @@ public class OffersActivity extends ActionBarActivity {
 
     }
 
-
-
+    public void filterOnClick(View view) {
+        Intent intent = new Intent(OffersActivity.this, FilterActivity.class);
+        startActivity(intent);
+    }
 
     private void settingMall() {
         TextView mallTitle = (TextView) findViewById(R.id.mall_text);

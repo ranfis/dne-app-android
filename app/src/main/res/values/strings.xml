@@ -12,9 +12,8 @@
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="logo_desc">En El Mall Logo</string>
-
-
     <string name="offers_filter">Filtrar</string>
+
     <string-array name="navDrawer">
         <item>@string/title_section1</item>
         <item>@string/title_section2</item>
@@ -23,10 +22,7 @@
         <item>@string/title_section5</item>
     </string-array>
 
-
-   <!--
-   A partir de aqui es una array DEMO para la lista probando el Refresh
-   -->
+<!--    A partir de aqui es una array DEMO para la lista probando el Refresh -->
 
     <string-array name="offers_names">
         <item>Zapatos a 2x1</item>
@@ -39,8 +35,25 @@
         <item>2x1 en chancleta samurai</item>
         <item>Demo de ofertas</item>
     </string-array>
-    <string name="title_activity_details">DetailsActivity</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_store_details">StoreDetailsActivity</string>
+    <string name="title_activity_details">Oferta info</string>
+    <string name="title_activity_store_details">Tienda info</string>
+    <string name="title_activity_filter">Filtrar</string>
+
+    <string name="standarStoreFilter">Todas</string>
+    <string name="standarCategoriesFilter">Todas</string>
+    <string name="promptSpinnerCategory">Seleccione una categoria</string>
+
+
+    <string name="typeOffer">Todas</string>
+    <string name="typeOffer1">Descuentos</string>
+    <string name="typeOffer2">Tiempo limitado</string>
+    <string name="typeOffer3">Pague 1, llevese 2</string>
+    <string name="typeOffer4">Concurso</string>
+
+
+
+
+
+
 </resources>

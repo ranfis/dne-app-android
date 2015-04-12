@@ -1,0 +1,211 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_with_cards"
+    android:paddingRight="@dimen/activity_with_cards"
+    android:paddingTop="@dimen/activity_with_cards"
+    android:paddingBottom="@dimen/activity_with_cards"
+    android:id="@+id/cFilterGeneral"
+    tools:context="com.eem.apps.enelmall.FilterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/cFilterCards">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/cFilterStores">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/cFiltersButton">
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Button"
+                        android:id="@+id/button"
+                        android:drawableLeft="@drawable/ic_action_search"
+                        android:background="#0000"
+                        android:layout_weight="1" />
+
+                    <Button
+                        style="?android:attr/buttonStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="New Button"
+                        android:id="@+id/button2"
+                        android:drawableLeft="@drawable/ic_action_search"
+                        android:background="#0000"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cFilterForSpecificStore"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/layer_card_background"
+                    android:padding="16dp"
+                    android:layout_gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Tienda"
+                        android:id="@+id/SpecificStoreText"
+                        android:gravity="left"
+                        android:textColor="#5E5E5E"
+                        android:textSize="20sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp" />
+
+                    <Spinner
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinnerStores"
+                        android:spinnerMode="dialog"
+                        android:layout_gravity="left|center_vertical"
+                        android:gravity="center_horizontal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cFilterType"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/layer_card_background"
+                    android:padding="16dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Tipos de ofertas"
+                        android:id="@+id/typeOffersTitle"
+                        android:gravity="left"
+                        android:textColor="#5E5E5E"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <RadioGroup
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/typeRadioGroup"
+                        android:checkedButton="@+id/typeButton">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/typeButton"
+                            android:checked="false"
+                            android:text="@string/typeOffer" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/typeOffer1"
+                            android:id="@+id/typeButton1"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/typeOffer2"
+                            android:id="@+id/typeButton2"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/typeOffer3"
+                            android:id="@+id/typeButton3"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/typeOffer4"
+                            android:id="@+id/typeButton4"
+                            android:checked="false" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cFilterCategory"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/layer_card_background"
+                    android:padding="16dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Categorias de ofertas"
+                        android:id="@+id/categoryTitle"
+                        android:gravity="left"
+                        android:textColor="#5E5E5E"
+                        android:textSize="20sp"
+                        android:layout_marginBottom="10dp" />
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/categorySpinners">
+
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:id="@+id/categorySpinner"
+                            android:layout_weight="1"
+                            android:prompt="@string/promptSpinnerCategory"
+                            android:spinnerMode="dialog"
+                            android:layout_marginBottom="16dp" />
+
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:id="@+id/categorySpinner2"
+                            android:layout_weight="1"
+                            android:prompt="@string/promptSpinnerCategory"
+                            android:spinnerMode="dialog"
+                            android:layout_marginBottom="16dp" />
+
+                        <Spinner
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:id="@+id/categorySpinner3"
+                            android:layout_weight="1"
+                            android:prompt="@string/promptSpinnerCategory"
+                            android:spinnerMode="dialog" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
