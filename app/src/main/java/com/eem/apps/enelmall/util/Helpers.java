@@ -1,5 +1,8 @@
 package com.eem.apps.enelmall.util;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -25,5 +28,21 @@ public final class Helpers {
         }
         inputStream.close();
         return result;
+    }
+
+    public static Boolean createDialogError(Context context, String title, String msg, String okButton) {
+        final Boolean[] result = {false};
+        AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(msg);
+        alertDialog.setButton(okButton, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                result[0] = true;
+            }
+        });
+
+        alertDialog.show();
+
+        return result[0];
     }
 }

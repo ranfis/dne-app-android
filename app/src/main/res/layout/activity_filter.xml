@@ -11,7 +11,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView2"
+        android:id="@+id/cFilterScroll"
         android:fillViewport="false">
 
         <LinearLayout
@@ -25,33 +25,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:id="@+id/cFilterStores">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:id="@+id/cFiltersButton">
-
-                    <Button
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New Button"
-                        android:id="@+id/button"
-                        android:drawableLeft="@drawable/ic_action_search"
-                        android:background="#0000"
-                        android:layout_weight="1" />
-
-                    <Button
-                        style="?android:attr/buttonStyleSmall"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="New Button"
-                        android:id="@+id/button2"
-                        android:drawableLeft="@drawable/ic_action_search"
-                        android:background="#0000"
-                        android:layout_weight="1" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -202,6 +175,74 @@
 
                     </LinearLayout>
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/layer_card_background"
+
+                    android:id="@+id/cFiltersButton">
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/buttonReset"
+                        android:onClick="buttonReset"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageFilterReset"
+                            android:src="@drawable/ic_action_discard"
+                            android:layout_marginRight="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Restablecer todo"
+                            android:id="@+id/textImageReset"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="1dp"
+                        android:layout_height="fill_parent"
+                        android:background="@color/gray"
+                        android:layout_weight="0"></LinearLayout>
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarButtonStyle"
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/buttonListo"
+                        android:onClick="buttonReady"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/imageFilterReady"
+                            android:src="@drawable/ic_action_accept"
+                            android:layout_marginRight="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Listo"
+                            android:id="@+id/textImageReady"
+                            android:textSize="14sp"
+                            android:layout_gravity="center_vertical" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

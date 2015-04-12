@@ -1,5 +1,6 @@
 package com.eem.apps.enelmall;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,21 +15,34 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import com.eem.apps.enelmall.util.Helpers;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class FilterActivity extends ActionBarActivity {
     protected static final String TAG = "[FilterActivity]";
+    protected static final String STORE_SELECTION_CODE = "StoreSelectionFilterActivity";
+    protected static final String CATEGORY1_SELECTION_CODE = "Category1SelectionFilterActivity";
+    protected static final String CATEGORY2_SELECTION_CODE = "Category2SelectionFilterActivity";
+    protected static final String CATEGORY3_SELECTION_CODE = "Category3SelectionFilterActivity";
+    protected static final String TYPE_SELECTION_CODE = "TypeSelectionFilterActivity";
+
+
 
     private RadioGroup typeGroup;
     private RadioButton typeButton, typeButton1, typeButton2, typeButton3, typeButton4;
+    private Spinner spinner;
+    private Spinner cat1;
+    private Spinner cat2;
+    private Spinner cat3;
 
-    public static String typeSelected = "todos";
-    public static String categorySelected1 = "todos";
-    public static String categorySelected2 = "todos";
-    public static String categorySelected3 = "todos";
-    public static String storeSelected = "todos";
+    public  String typeSelected = "todas";
+    public  String categorySelected1 = "todas";
+    public  String categorySelected2 = "todas";
+    public  String categorySelected3 = "todas";
+    public  String storeSelected = "todas";
 
 
     @Override
@@ -48,22 +62,12 @@ public class FilterActivity extends ActionBarActivity {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                // find which radio button is selected
+                //Method that find which radio button is selected
                 if(checkedId == R.id.typeButton) {
-                    Toast.makeText(getApplicationContext(), "choice: 1",
-                            Toast.LENGTH_SHORT).show();
                 } else if(checkedId == R.id.typeButton1) {
-                    Toast.makeText(getApplicationContext(), "choice: 2",
-                            Toast.LENGTH_SHORT).show();
                 } else if(checkedId == R.id.typeButton2) {
-                    Toast.makeText(getApplicationContext(), "choice: 3",
-                            Toast.LENGTH_SHORT).show();
                 } else if(checkedId == R.id.typeButton3) {
-                    Toast.makeText(getApplicationContext(), "choice: 4",
-                            Toast.LENGTH_SHORT).show();
                 } else if(checkedId == R.id.typeButton4) {
-                    Toast.makeText(getApplicationContext(), "choice: 5",
-                            Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -75,26 +79,15 @@ public class FilterActivity extends ActionBarActivity {
         typeButton3 = (RadioButton) findViewById(R.id.typeButton3);
         typeButton4 = (RadioButton) findViewById(R.id.typeButton4);
 
-        //TODO GETTING THE SELECTED WHEN THE FILTER BUTTON IS PRESSED
-        int selectedId = typeGroup.getCheckedRadioButtonId();
-        if (selectedId == typeButton.getId()) {
-            typeSelected = typeButton.getText().toString();
-        } else if (selectedId == typeButton1.getId()) {
-            typeSelected = typeButton.getText().toString();
-        } else if (selectedId == typeButton2.getId()) {
-            typeSelected = typeButton.getText().toString();
-        } else if (selectedId == typeButton3.getId()) {
-            typeSelected = typeButton.getText().toString();
-        } else if (selectedId == typeButton4.getId()) {
-            typeSelected = typeButton.getText().toString();
-        }
+
     }
 
     private void settingSpinnersForCategories() {
         Log.d(TAG, "settingSpinnersForCategories()");
-        final Spinner cat1 = (Spinner) findViewById(R.id.categorySpinner);
-        final Spinner cat2 = (Spinner) findViewById(R.id.categorySpinner2);
-        final Spinner cat3 = (Spinner) findViewById(R.id.categorySpinner3);
+
+        cat1 = (Spinner) findViewById(R.id.categorySpinner);
+        cat2 = (Spinner) findViewById(R.id.categorySpinner2);
+        cat3 = (Spinner) findViewById(R.id.categorySpinner3);
 
         ArrayAdapter<String> categoryDataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, getListCategories());
@@ -108,8 +101,7 @@ public class FilterActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 categorySelected1 = cat1.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), categorySelected1,
-                        Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -122,8 +114,6 @@ public class FilterActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 categorySelected2 = cat2.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), categorySelected2,
-                        Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -136,8 +126,7 @@ public class FilterActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 categorySelected3 = cat3.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), categorySelected3,
-                        Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -149,7 +138,7 @@ public class FilterActivity extends ActionBarActivity {
 
     private void settingSpinnerForStore() {
         Log.d(TAG, "settingSpinner()");
-        final Spinner spinner = (Spinner) findViewById(R.id.spinnerStores);
+        spinner = (Spinner) findViewById(R.id.spinnerStores);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, getListStores());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -159,8 +148,7 @@ public class FilterActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 storeSelected = spinner.getItemAtPosition(position).toString();
-                Toast.makeText(getApplicationContext(), storeSelected,
-                        Toast.LENGTH_LONG).show();
+
             }
 
             @Override
@@ -212,6 +200,76 @@ public class FilterActivity extends ActionBarActivity {
 
         return listOfStores;
     }
+
+    public void buttonReset(View view) {
+        spinner.setSelection(0);
+        cat1.setSelection(0);
+        cat2.setSelection(0);
+        cat3.setSelection(0);
+        typeGroup.clearCheck();
+        typeButton.setChecked(true);
+    }
+
+    public void buttonReady(View view) {
+        Log.d(TAG, "ButtonReady");
+        Boolean result = false;
+
+        /**
+         * A partir de aqui categorias de ofertas
+         */
+        if (categorySelected1.toLowerCase().equalsIgnoreCase("todas")
+                && categorySelected2.toLowerCase().equalsIgnoreCase("todas")
+                && categorySelected3.toLowerCase().equalsIgnoreCase("todas")) {
+            result = true;
+        } else if (((categorySelected1.toLowerCase().equalsIgnoreCase(categorySelected2) && categorySelected1.toLowerCase().equalsIgnoreCase(categorySelected3))
+                || (categorySelected2.toLowerCase().equalsIgnoreCase(categorySelected1) && categorySelected2.toLowerCase().equalsIgnoreCase(categorySelected3))
+                || (categorySelected3.toLowerCase().equalsIgnoreCase(categorySelected1) && categorySelected1.toLowerCase().equalsIgnoreCase(categorySelected2)))
+                ) {
+            result = Helpers.createDialogError(this, "Error en categorías", "No se puede seleccionar la misma categoria más de una vez", "Esta bien");
+        } else if ((categorySelected1.toLowerCase().equalsIgnoreCase(categorySelected2) && !(categorySelected1.toLowerCase().equalsIgnoreCase("todas") || categorySelected2.toLowerCase().equalsIgnoreCase("todas")))) {
+            result = Helpers.createDialogError(this, "Error en categorías", "No se puede seleccionar la misma categoria más de una vez", "Esta bien");
+        } else if ((categorySelected1.toLowerCase().equalsIgnoreCase(categorySelected3) && !(categorySelected1.toLowerCase().equalsIgnoreCase("todas") || categorySelected3.toLowerCase().equalsIgnoreCase("todas")))) {
+            result = Helpers.createDialogError(this, "Error en categorías", "No se puede seleccionar la misma categoria más de una vez", "Esta bien");
+        } else if (( categorySelected2.toLowerCase().equalsIgnoreCase(categorySelected3) && !(categorySelected2.toLowerCase().equalsIgnoreCase("todas") || categorySelected3.toLowerCase().equalsIgnoreCase("todas")) )) {
+            result = Helpers.createDialogError(this, "Error en categorías", "No se puede seleccionar la misma categoria más de una vez", "Esta bien");
+        } else {
+            result = true;
+        }
+
+        /**
+         * A partir de aqui para tipo de ofertas
+         * TypeSelected es un String con el nombre del tipo, si se necesita int habria que adaptarlo pero el metodo para conseguir el id solamente
+         * seria .getID()
+         */
+        int selectedId = typeGroup.getCheckedRadioButtonId();
+        if (selectedId == typeButton.getId()) {
+            typeSelected = typeButton.getText().toString();
+        } else if (selectedId == typeButton1.getId()) {
+            typeSelected = typeButton.getText().toString();
+        } else if (selectedId == typeButton2.getId()) {
+            typeSelected = typeButton.getText().toString();
+        } else if (selectedId == typeButton3.getId()) {
+            typeSelected = typeButton.getText().toString();
+        } else if (selectedId == typeButton4.getId()) {
+            typeSelected = typeButton.getText().toString();
+        }
+
+
+        if (result==true) {
+            Log.d(TAG, "ActionFilter_"+result.toString());
+            Intent rIntent = new Intent();
+            rIntent.putExtra(STORE_SELECTION_CODE, storeSelected);
+            rIntent.putExtra(CATEGORY1_SELECTION_CODE, categorySelected1);
+            rIntent.putExtra(CATEGORY2_SELECTION_CODE, categorySelected2);
+            rIntent.putExtra(CATEGORY3_SELECTION_CODE, categorySelected3);
+            rIntent.putExtra(TYPE_SELECTION_CODE, typeSelected);
+            setResult(RESULT_OK, rIntent);
+            finish();
+        }
+
+
+    }
+
 
 
     @Override

@@ -13,6 +13,7 @@ import com.eem.apps.enelmall.model.Offer;
 import com.squareup.picasso.Picasso;
 import pl.droidsonroids.gif.GifDrawable;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class OffersAdapter extends ArrayAdapter<Offer> {
@@ -25,6 +26,12 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         super(context, R.layout.offers_list_items, offers);
         this.context = context;
         this.offers = offers;
+    }
+
+    @Override
+    public void notifyDataSetChanged() // Create this function in your adapter class
+    {
+        super.notifyDataSetChanged();
     }
 
     @Override
@@ -42,7 +49,7 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
 
 
         Picasso.with(context)
-                .load( (String) offers.get(position).getImage() )
+                .load((String) offers.get(position).getImage())
                 .placeholder(gifFromResource)
                 .error(R.drawable.no_image)
                 .into(imageOffer);

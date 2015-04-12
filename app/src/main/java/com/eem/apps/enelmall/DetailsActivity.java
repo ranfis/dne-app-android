@@ -45,6 +45,7 @@ public class DetailsActivity extends ActionBarActivity {
 
 
         offerPhoto.setImageDrawable( (Drawable) offer.getfImageDetails());
+        //offerPhoto.setImageBitmap((Bitmap)offer.getfImageDetails());
 
         titleOffer.setText(offer.getTitle());
         categoryOffer.setText(offer.getCategory().getNameFromID(offer.getCategory().getId()).toUpperCase());
