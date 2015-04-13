@@ -1,11 +1,10 @@
 package com.eem.apps.enelmall.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public enum Type {
-    TIEMPO_LIMITADO(0),
-    DESCUENTO(1);
+    PAGUE1LLEVE2(1),
+    TIEMPO_LIMITADO(2),
+    DESCUENTO(3),
+    CONCURSO(4);
 
     private int id;
 
@@ -18,7 +17,7 @@ public enum Type {
     }
 
     public static Type getFromId(int id) {
-        return values()[id];
+        return values()[id-1];
     }
 
 

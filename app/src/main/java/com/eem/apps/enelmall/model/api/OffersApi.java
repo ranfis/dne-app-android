@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class OffersApi extends DataApiCall {
     protected static final String TAG = "[OffersApi]";
-    protected static final String API_URL = "http://104.236.25.160/api/offers";
+    public static final String API_URL = "http://104.236.25.160/api/offers";
     public static ArrayList<Offer> offers = new ArrayList<>();
     public static Offer offer;
     public static Store store;

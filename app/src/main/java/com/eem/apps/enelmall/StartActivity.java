@@ -106,6 +106,7 @@ public class StartActivity extends Activity implements ConnectionCallbacks, OnCo
 
         Log.i(TAG,"getNearOffers()/lat:"+lat);
         Log.i(TAG,"getNearOffers()/lon:"+lon);
-        new OffersApi().execute("mock", MockOffers.getOffers(0)); //TODO: Get offers from api
+//        new OffersApi().execute("mock", MockOffers.getOffers(0)); //TODO: Get offers from api
+        new OffersApi().execute( OffersApi.API_URL);
     }
 }

@@ -36,7 +36,7 @@ public enum Category {
     }
 
     public static Category getFromId(int id) {
-        return values()[id];
+        return values()[id-1];
     }
 
     public String getNameFromID(int id) {
