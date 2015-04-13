@@ -25,7 +25,7 @@ public class StoreActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store);
 
-        stores = new ArrayList<Store>();
+        stores = new ArrayList<>();
         stores.add(new Store(1, "O6 Store","Lunes a Viernes\nSabado y Domingo\nDías feriados","8:00 AM - 5:00 PM\n9:00 AM - 1:00 PM\n9:00 AM - 3:00 PM"));
         stores.add(new Store(2, "Electro Lama","Lunes a Viernes\nSabado y Domingo\nDías feriados","8:00 AM - 5:00 PM\n9:00 AM - 1:00 PM\n9:00 AM - 3:00 PM"));
 
