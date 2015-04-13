@@ -21,9 +21,14 @@ public class OffersApi extends DataApiCall {
 
     protected void onPostExecute(String result) {
         Log.d(TAG, "onPostExecute()");
-        offers = new ArrayList<>();
+        OffersApi.fillOffersList(result);
+    }
+
+    public static void fillOffersList(String json){
+        Log.d(TAG, "fillOffersList()");
         try {
-            JSONArray jsonOffers = ((JSONArray)JsonParser.parse(result));
+            offers = new ArrayList<>();
+            JSONArray jsonOffers = ((JSONArray)JsonParser.parse(json));
             for(int i=0;i<=jsonOffers.length()-1;i++){
                 Offer offer = new Offer( (JSONObject)jsonOffers.get(i) );
                 offers.add(offer);
@@ -66,7 +71,7 @@ public class OffersApi extends DataApiCall {
                         System.out.println( "Paso cat3");
                         newOffers.add(offer);
                     }
-                    else if( cat3.equalsIgnoreCase("todas")  && cat2.equalsIgnoreCase("todas") && cat3.equalsIgnoreCase("todas") ){
+                    else if( cat1.equalsIgnoreCase("todas")  && cat2.equalsIgnoreCase("todas") && cat3.equalsIgnoreCase("todas") ){
                         System.out.println( "Todas");
                         newOffers.add(offer);
                     }

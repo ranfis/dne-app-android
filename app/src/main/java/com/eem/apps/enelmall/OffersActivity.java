@@ -118,6 +118,12 @@ public class OffersActivity extends ActionBarActivity {
                 String category3 = data.getStringExtra(FilterActivity.CATEGORY3_SELECTION_CODE);
                 String storeSelected =data.getStringExtra(FilterActivity.STORE_SELECTION_CODE);
                 String typeSelected = data.getStringExtra(FilterActivity.TYPE_SELECTION_CODE);
+                   System.out.println("=======");
+                    System.out.println("category1: "+category1);
+                    System.out.println("category2: "+category2);
+                    System.out.println("category3: "+category3);
+                    System.out.println("storeSelected: "+storeSelected);
+                    System.out.println("typeSelected: "+typeSelected);
 
                 if (category1.toLowerCase().equalsIgnoreCase("todas") && category2.toLowerCase().equalsIgnoreCase("todas")
                         && category3.toLowerCase().equalsIgnoreCase("todas")
@@ -125,11 +131,12 @@ public class OffersActivity extends ActionBarActivity {
                         && typeSelected.toLowerCase().equalsIgnoreCase("todas")) {
                     //TODO Refresh all from Api
                     System.err.println("Dont filter");
-                    new OffersApi().execute("mock", MockOffers.getOffers(0));
+                    OffersApi.fillOffersList(MockOffers.getOffers(0)); //TODO
 //                    new OffersApi().execute("mock", MockOffers.getOffers2(0));
                 } else {
                     System.err.println("filter");
 //                    new OffersApi().execute( OffersApi.API_URL, typeSelected);
+                    OffersApi.fillOffersList(MockOffers.getOffers(0));
                     OffersApi.filter(storeSelected,category1,category2,category3,typeSelected);
                     //TODO Refresh with specific request from API
                 }

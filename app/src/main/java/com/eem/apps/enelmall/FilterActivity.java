@@ -4,19 +4,17 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-
+import com.eem.apps.enelmall.model.MockOffers;
+import com.eem.apps.enelmall.model.Store;
+import com.eem.apps.enelmall.model.api.OffersApi;
 import com.eem.apps.enelmall.util.Helpers;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,11 +182,15 @@ public class FilterActivity extends ActionBarActivity {
         Log.d(TAG,"getListStores()");
         //TODO Method that allow to get all the Stores from the API
         List<String> listOfStoresFromApi = new ArrayList<>();
-        listOfStoresFromApi.add("LosGamers.com");
+        for(Store store : MockOffers.getStores() ){
+            listOfStoresFromApi.add(store.getName());
+        }
+
+/*        listOfStoresFromApi.add("LosGamers.com");
         listOfStoresFromApi.add("EnergySystem");
         listOfStoresFromApi.add("Fiesta Party");
         listOfStoresFromApi.add("06 Store");
-        listOfStoresFromApi.add("Super Lama");
+        listOfStoresFromApi.add("Super Lama");*/
 
         java.util.Collections.sort(listOfStoresFromApi);
 
