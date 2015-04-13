@@ -5,13 +5,13 @@ public class Store {
     private String name;
     private double rating;
     private String hoursOpen;
-    private String dayssOpen;
+    private String daysOpen;
 
-    public Store(int id, String name,String hoursOpen,String dayssOpen) {
+    public Store(int id, String name,String hoursOpen,String daysOpen) {
         this.id = id;
         this.name = name;
         this.setHoursOpen(hoursOpen);
-        this.setDayssOpen(dayssOpen);
+        this.setDayssOpen(daysOpen);
     }
 
     public String getName() {
@@ -38,11 +38,11 @@ public class Store {
         this.hoursOpen = hoursOpen;
     }
 
-    public String getDayssOpen() {
-        return dayssOpen;
+    public String getDaysOpen() {
+        return daysOpen;
     }
 
-    public void setDayssOpen(String dayssOpen) {
-        this.dayssOpen = dayssOpen;
+    public void setDayssOpen(String daysOpen) {
+        this.daysOpen = daysOpen;
     }
 }

@@ -40,18 +40,12 @@ public class Offer  {
         Log.d(TAG,"Offer()");
         try {
             JSONObject store = jsonObj.getJSONObject("store");
-            JSONObject _location = jsonObj.getJSONObject("location");
-            int latitude = _location .getInt("latitude");
-            int longitude = _location .getInt("longitude");
             this.title = jsonObj.getString("title");
             this.details = jsonObj.getString("details");
             this.type = Type.getFromId((int) jsonObj.get("type"));
             this.category = Category.getFromId((int) jsonObj.get("category"));
             this.expirationDate = jsonObj.getString("expirationDate");
-            this.store = new Store(0,store.getString("name"));
-            this.location = new HashMap<>();
-            this.location.put("latitude", latitude);
-            this.location.put("longitude", longitude);
+            this.store = new Store(0,store.getString("name"),store.getString("hoursOpen"),store.getString("daysOpen"));
             this.image = jsonObj.getString("image");
         }
         catch (JSONException ex){
@@ -158,11 +152,9 @@ public class Offer  {
                 +"\"category\":"+this.category.getId()+","
                 +"\"expirationDate\":\""+this.expirationDate+"\","
                 +"\"store\":{"
-                    +"\"name\":\""+this.store.getName()+"\""
-                +"},"
-                +"\"location\":{"
-                    +"\"latitude\":"+this.location.get("latitude")+","
-                    +"\"longitude\":"+this.location.get("longitude")
+                    +"\"name\":\""+this.store.getName()+"\","
+                    +"\"daysOpen\":\""+this.store.getDaysOpen()+"\","
+                    +"\"hoursOpen\":\""+this.store.getHoursOpen()+"\""
                 +"},"
                 +"\"image\":\""+this.image+"\"}";
         return json;
