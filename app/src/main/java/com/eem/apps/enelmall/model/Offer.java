@@ -3,6 +3,8 @@ package com.eem.apps.enelmall.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.Serializable;
@@ -40,10 +42,17 @@ public class Offer  {
         Log.d(TAG,"Offer()");
         try {
             JSONObject store = jsonObj.getJSONObject("store");
+//            System.out.println(store);
+//            JSONArray categories = jsonObj.getInt("category");
+//            System.out.println(categories);
+//            int c = categories.getInt(0);
+//            int t = jsonObj.getInt("type");
+//            System.out.println("c"+c);
+//            System.out.println("t"+t);
             this.title = jsonObj.getString("title");
             this.details = jsonObj.getString("details");
-            this.type = Type.getFromId((int) jsonObj.get("type"));
-            this.category = Category.getFromId((int) jsonObj.get("category"));
+            this.type = Type.getFromId( jsonObj.getInt("type") );
+            this.category = Category.getFromId( jsonObj.getInt("category") );
             this.expirationDate = jsonObj.getString("expirationDate");
             this.store = new Store(0,store.getString("name"),store.getString("hoursOpen"),store.getString("daysOpen"));
             this.image = jsonObj.getString("image");

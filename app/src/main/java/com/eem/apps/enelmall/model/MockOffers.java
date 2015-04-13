@@ -55,6 +55,25 @@ public class MockOffers {
         return jsonOffers;
     }
 
+    public static String getOffers2(int delay){
+        Log.d(TAG, "getOffers()");
+        try {
+            Thread.sleep(delay);
+        } catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        String jsonOffers = "[";
+
+        Offer[] offers2 = {offers[0],offers[1]};
+
+        for (Offer o : offers2) {
+            jsonOffers+=o+",";
+        }
+        jsonOffers = jsonOffers.substring(0,jsonOffers.length()-1);
+        jsonOffers+="]";
+        return jsonOffers;
+    }
+
 
     public static String getOffer(int index){
         Log.d(TAG, "getOffer()");

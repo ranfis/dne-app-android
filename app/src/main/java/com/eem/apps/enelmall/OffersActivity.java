@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.eem.apps.enelmall.model.Category;
+import com.eem.apps.enelmall.model.MockOffers;
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.Type;
@@ -66,7 +67,7 @@ public class OffersActivity extends ActionBarActivity {
 //            String desc = offers.getJSONObject(0).getString("desc");
 //            Toast.makeText(this,desc,Toast.LENGTH_LONG).show();
 //        }
-//        catch (JSONException er){
+//        catch (JSONException er){on
 //            Log.e("OffersActivity","Bad JSON");
 //        }
 
@@ -123,7 +124,19 @@ public class OffersActivity extends ActionBarActivity {
                         && storeSelected.toLowerCase().equalsIgnoreCase("todas")
                         && typeSelected.toLowerCase().equalsIgnoreCase("todas")) {
                     //TODO Refresh all from Api
+                    System.out.println("Dont filter");
+                    new OffersApi().execute("mock", MockOffers.getOffers(0));
+//                    new OffersApi().execute("mock", MockOffers.getOffers2(0));
                 } else {
+                    System.out.println("filter");
+   /*                 System.out.println("=======");
+                    System.out.println(category1);
+                    System.out.println(category2);
+                    System.out.println(category3);
+                    System.out.println(storeSelected);
+                    System.out.println(typeSelected);*/
+//                    new OffersApi().execute( OffersApi.API_URL, typeSelected);
+                    OffersApi.filter(storeSelected,category1,category2,category3,typeSelected);
                     //TODO Refresh with specific request from API
                 }
 
@@ -131,7 +144,7 @@ public class OffersActivity extends ActionBarActivity {
                  * Forma de actualizar el listView
                  * param ArrayList de tipo oferta es lo que se mostrara en el ListView
                  */
-                updatingOffers(new ArrayList<Offer>()); //TODO metodo que actualiza el listView
+                updatingOffers(OffersApi.getAll()); //TODO metodo que actualiza el listView
 
             }
         }

@@ -10,22 +10,22 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class DataApiCall extends AsyncTask<String, String, String> {
+public class DataApiCall extends AsyncTask<Object, String, String> {
 
     protected static final String TAG = "[DataApiCall]";
 
     @Override
-    protected String doInBackground(String... params) {
+    protected String doInBackground(Object... params) {
         Log.d(TAG, "doInBackground()");
         if(params[0] == "mock"){
-            return params[1];
+            return params[1].toString();
         }
         return getFromApi(params);
     }
 
-    protected String getFromApi(String... params) {
+    protected String getFromApi(Object... params) {
         Log.d(TAG, "getFromApi()");
-        String urlString=params[0];
+        String urlString=params[0].toString();
         InputStream inputStream = null;
         String result = "";
         try {
