@@ -42,15 +42,17 @@ public class Offer  {
         Log.d(TAG,"Offer()");
         try {
             JSONObject store = jsonObj.getJSONObject("store");
-            JSONArray categories = jsonObj.getJSONArray("categories");
-            int c = categories.getInt(0);
-            int t = jsonObj.getInt("type");
-            System.out.println("c"+c);
-            System.out.println("t"+t);
+//            System.out.println(store);
+//            JSONArray categories = jsonObj.getInt("category");
+//            System.out.println(categories);
+//            int c = categories.getInt(0);
+//            int t = jsonObj.getInt("type");
+//            System.out.println("c"+c);
+//            System.out.println("t"+t);
             this.title = jsonObj.getString("title");
             this.details = jsonObj.getString("details");
-            this.type = Type.getFromId(t);
-            this.category = Category.getFromId(c);
+            this.type = Type.getFromId( jsonObj.getInt("type") );
+            this.category = Category.getFromId( jsonObj.getInt("category") );
             this.expirationDate = jsonObj.getString("expirationDate");
             this.store = new Store(0,store.getString("name"),store.getString("hoursOpen"),store.getString("daysOpen"));
             this.image = jsonObj.getString("image");

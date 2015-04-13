@@ -124,7 +124,7 @@ public class OffersActivity extends ActionBarActivity {
                         && storeSelected.toLowerCase().equalsIgnoreCase("todas")
                         && typeSelected.toLowerCase().equalsIgnoreCase("todas")) {
                     //TODO Refresh all from Api
-                    new OffersApi().execute("mock", MockOffers.getOffers2(0));
+//                    new OffersApi().execute("mock", MockOffers.getOffers2(0));
                 } else {
    /*                 System.out.println("=======");
                     System.out.println(category1);
@@ -132,7 +132,8 @@ public class OffersActivity extends ActionBarActivity {
                     System.out.println(category3);
                     System.out.println(storeSelected);
                     System.out.println(typeSelected);*/
-                    new OffersApi().execute( OffersApi.API_URL, typeSelected);
+//                    new OffersApi().execute( OffersApi.API_URL, typeSelected);
+                    OffersApi.filter(storeSelected,category1,category2,category3,typeSelected);
                     //TODO Refresh with specific request from API
                 }
 
