@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_with_cards"
     android:paddingRight="@dimen/activity_with_cards"
-    android:paddingTop="@dimen/activity_with_cards"
+    android:paddingTop="0dp"
     android:paddingBottom="@dimen/activity_with_cards"
     tools:context="com.eem.apps.enelmall.AboutActivity"
     android:background="@color/eem_green">
@@ -16,20 +16,23 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:paddingTop="8dp">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp">
+                android:paddingTop="5dp"
+                android:layout_gravity="center">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="240dp"
                     android:id="@+id/imageView"
                     android:src="@drawable/eem_logo_alt"
-                    android:layout_marginBottom="16dp" />
+                    android:layout_marginBottom="16dp"
+                    android:layout_gravity="center" />
             </LinearLayout>
 
             <LinearLayout
@@ -71,12 +74,11 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/selector"
+                android:background="@drawable/layer_card_background"
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp"
                 android:paddingBottom="2dp"
-                android:nestedScrollingEnabled="true"
-                android:onClick="storeButton" >
+                android:nestedScrollingEnabled="true">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -100,12 +102,11 @@
                         android:padding="0dp"
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:background="@drawable/selector"
+                        android:background="@drawable/layer_card_background"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/linearLayout10"
-                        android:clickable="true"
-                        android:onClick="storeButton" >
+                        android:clickable="true" >
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -146,12 +147,11 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/selector"
+                android:background="@drawable/layer_card_background"
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp"
                 android:paddingBottom="2dp"
-                android:nestedScrollingEnabled="true"
-                android:onClick="storeButton" >
+                android:nestedScrollingEnabled="true">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -175,12 +175,11 @@
                         android:padding="0dp"
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:background="@drawable/selector"
+                        android:background="@drawable/layer_card_background"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/linearLayout6"
-                        android:clickable="true"
-                        android:onClick="storeButton" >
+                        android:clickable="true">
 
                         <LinearLayout
                             android:orientation="vertical"
@@ -221,12 +220,11 @@
                 android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:focusable="true"
-                android:background="@drawable/selector"
+                android:background="@drawable/layer_card_background"
                 android:orientation="vertical"
                 android:layout_marginBottom="8dp"
                 android:paddingBottom="2dp"
-                android:nestedScrollingEnabled="true"
-                android:onClick="storeButton" >
+                android:nestedScrollingEnabled="true">
 
                 <LinearLayout
                     android:orientation="horizontal"
@@ -250,12 +248,11 @@
                         android:padding="0dp"
                         android:orientation="vertical"
                         android:layout_width="fill_parent"
-                        android:background="@drawable/selector"
+                        android:background="@drawable/layer_card_background"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:id="@+id/linearLayout2"
-                        android:clickable="true"
-                        android:onClick="storeButton" >
+                        android:clickable="true" >
 
                         <LinearLayout
                             android:orientation="vertical"

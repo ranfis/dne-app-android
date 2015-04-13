@@ -6,9 +6,7 @@
     <string name="title_activity_offers">Ofertas</string>
     <string name="title_section1">Ofertas</string>
     <string name="title_section2">Tiendas</string>
-    <string name="title_section3">Centros comerciales</string>
-    <string name="title_section4">Configuración</string>
-    <string name="title_section5">Acerca</string>
+    <string name="title_section3">Acerca</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="logo_desc">En El Mall Logo</string>
@@ -18,8 +16,6 @@
         <item>@string/title_section1</item>
         <item>@string/title_section2</item>
         <item>@string/title_section3</item>
-        <item>@string/title_section4</item>
-        <item>@string/title_section5</item>
     </string-array>
 
     <!-- A partir de aqui es una array DEMO para la lista probando el Refresh -->
@@ -47,7 +43,7 @@
     <string name="typeOffer2">Tiempo limitado</string>
     <string name="typeOffer3">Pague 1, llevese 2</string>
     <string name="typeOffer4">Concurso</string>
-    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_about">Acerca</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>
