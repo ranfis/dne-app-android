@@ -53,13 +53,16 @@ public final class Helpers {
         int drawableToShow = 0;
         switch (type) {
             case 1:
-
+                drawableToShow = R.drawable.type_2por1;
                 break;
             case 2:
+                drawableToShow = R.drawable.type_watch;
                 break;
             case 3:
+                drawableToShow = R.drawable.type_tag;
                 break;
             case 4:
+                drawableToShow = R.drawable.type_contest;
                 break;
         }
 

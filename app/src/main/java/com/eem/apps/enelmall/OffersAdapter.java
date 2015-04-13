@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.util.Helpers;
 import com.squareup.picasso.Picasso;
 import pl.droidsonroids.gif.GifDrawable;
 
@@ -62,6 +63,7 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         storeOffer.setText(offers.get(position).getStore().getName());
 
         ImageView typeOffer = (ImageView) item.findViewById(R.id.offer_type);
+        Helpers.setTypeIcon(offers.get(position).getType().getId(), typeOffer);
 //        typeOffer.setImageResource(R.drawable.abc_cab_background_internal_bg);
 //        switch (offers.get(position).getType().getId()) {
 //            case 0:
@@ -76,6 +78,9 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
 //                typeOffer.setImageResource(R.drawable.limited_time);
 //                break;
 //        }
+
+
+
 
         return item;
     }

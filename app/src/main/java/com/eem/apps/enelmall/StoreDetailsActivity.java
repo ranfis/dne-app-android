@@ -40,20 +40,33 @@ public class StoreDetailsActivity extends ActionBarActivity {
     private void settingStoreButtons(Store store) {
         phoneStore = (TextView) findViewById(R.id.buttonPhoneText);
         phoneStore.setText("8095521650"); //TODO get the phone from store
+//        phoneStore.setText(store.getPhone());
 
         webStore = (TextView) findViewById(R.id.buttonWebsiteText);
         webStore.setText("www.losgamers.com");
+//        webStore.setText(store.getUrlWebsite());
 
         fbStore = (TextView) findViewById(R.id.buttonFacebookText);
         fbStore.setText("Losgamerspuntocom");
+        fbStore.setText(store.getUrlFacebook());
     }
 
     private void settingCardsStore(Store store) {
         ImageView photoStoreDetails = (ImageView) findViewById(R.id.photoStoreDetails);
         TextView titleStore = (TextView) findViewById(R.id.titleStoreDetails);
+        TextView detailsStore = (TextView) findViewById(R.id.descriptionTextStore);
+        TextView textSchedule = (TextView) findViewById(R.id.scheduleStore);
+        TextView timeSchedule = (TextView) findViewById(R.id.scheduleStoreTime);
 
         titleStore.setText(store.getName());
+//        detailsStore.setText(store.getDetails());
         photoStoreDetails.setImageResource(R.drawable.store_example);
+
+        textSchedule.setText(store.getHoursOpen());
+        timeSchedule.setText(store.getDaysOpen());
+
+
+
     }
 
     public void buttonCall(View view) {
@@ -70,7 +83,7 @@ public class StoreDetailsActivity extends ActionBarActivity {
 
     public void buttonFacebook(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("http://www.facebook.com/"+fbStore.getText().toString()));
+        intent.setData(Uri.parse(fbStore.getText().toString()));
         startActivity(intent);
     }
 

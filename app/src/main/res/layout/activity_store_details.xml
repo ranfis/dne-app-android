@@ -137,27 +137,6 @@
                             android:gravity="fill_horizontal"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Sabado y Domingo"
-                            android:id="@+id/scheduleStore2"
-                            android:textColor="#A9A9A9"
-                            android:textIsSelectable="false"
-                            android:gravity="fill_horizontal"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="Días feriados"
-                            android:id="@+id/scheduleStore3"
-                            android:textColor="#A9A9A9"
-                            android:textIsSelectable="false"
-                            android:gravity="fill_horizontal"
-                            android:textSize="14sp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -179,29 +158,6 @@
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="9:00 AM - 1:00 PM"
-                            android:id="@+id/scheduleStoreTime2"
-                            android:textColor="#A9A9A9"
-                            android:textIsSelectable="false"
-                            android:gravity="fill_horizontal"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="9:00 AM - 3:00 PM"
-                            android:id="@+id/scheduleStoreTime3"
-                            android:textColor="#A9A9A9"
-                            android:textIsSelectable="false"
-                            android:gravity="fill_horizontal"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 

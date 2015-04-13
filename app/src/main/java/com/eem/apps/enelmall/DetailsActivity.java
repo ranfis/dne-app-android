@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.eem.apps.enelmall.util.Helpers;
 import com.squareup.picasso.Picasso;
 import com.eem.apps.enelmall.model.Offer;
 import com.eem.apps.enelmall.model.Store;
@@ -40,7 +42,7 @@ public class DetailsActivity extends ActionBarActivity {
         TextView titleOffer = (TextView) findViewById(R.id.titleOffer);
         TextView categoryOffer = (TextView) findViewById(R.id.categoryOffer);
         TextView detailsOffer = (TextView) findViewById(R.id.detailsOffer);
-        //ImageView typeOffer = (ImageView) findViewById(R.id.typeOffer); //TODO
+        ImageView typeOffer = (ImageView) findViewById(R.id.typeOffer);
         TextView expirationDateOffer = (TextView) findViewById(R.id.expTime);
 
 
@@ -51,6 +53,7 @@ public class DetailsActivity extends ActionBarActivity {
         categoryOffer.setText(offer.getCategory().getNameFromID(offer.getCategory().getId()).toUpperCase());
         detailsOffer.setText(offer.getDescription());
         expirationDateOffer.setText(offer.getExpirationDate());
+        Helpers.setTypeIcon(offer.getType().getId(), typeOffer);
 
     }
 
