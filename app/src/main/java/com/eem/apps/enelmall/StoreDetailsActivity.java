@@ -29,7 +29,7 @@ public class StoreDetailsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_details);
 
-        Store store = OffersApi.getStore();
+        store = OffersApi.getStore();
         setTitle(store.getName());
 
         settingCardsStore(store);
@@ -40,11 +40,11 @@ public class StoreDetailsActivity extends ActionBarActivity {
 
     private void settingStoreButtons(Store store) {
         phoneStore = (TextView) findViewById(R.id.buttonPhoneText);
-        phoneStore.setText("8095521650"); //TODO get the phone from store
+        phoneStore.setText(store.getPhone()); //TODO get the phone from store
 //        phoneStore.setText(store.getPhone());
 
         webStore = (TextView) findViewById(R.id.buttonWebsiteText);
-        webStore.setText("www.losgamers.com");
+        webStore.setText(store.getUrlWebsite());
 //        webStore.setText(store.getUrlWebsite());
 
     }
@@ -57,13 +57,11 @@ public class StoreDetailsActivity extends ActionBarActivity {
         TextView timeSchedule = (TextView) findViewById(R.id.scheduleStoreTime);
 
         titleStore.setText(store.getName());
-//        detailsStore.setText(store.getDetails());
+        detailsStore.setText(store.getDetails());
         photoStoreDetails.setImageResource(R.drawable.store_example);
 
         textSchedule.setText(store.getHoursOpen());
         timeSchedule.setText(store.getDaysOpen());
-
-
 
     }
 

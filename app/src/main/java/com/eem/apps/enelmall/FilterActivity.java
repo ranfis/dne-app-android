@@ -187,7 +187,7 @@ public class FilterActivity extends ActionBarActivity {
         listOfStoresFromApi.add("LosGamers.com");
         listOfStoresFromApi.add("EnergySystem");
         listOfStoresFromApi.add("Fiesta Party");
-        listOfStoresFromApi.add("O6 Store");
+        listOfStoresFromApi.add("06 Store");
         listOfStoresFromApi.add("Super Lama");
 
         java.util.Collections.sort(listOfStoresFromApi);

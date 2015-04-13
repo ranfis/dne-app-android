@@ -41,14 +41,14 @@ public class OffersApi extends DataApiCall {
         ArrayList<Offer> offers = OffersApi.getAll();
 //        System.out.println("new"+newOffers);
 //        System.out.println("old"+offers);
-        System.out.println("store"+store);
-        System.out.println("cat1"+cat1);
-        System.out.println("cat2"+cat2);
-        System.out.println("cat3"+cat3);
-        System.out.println("type"+type);
+        System.out.println("store:"+store);
+        System.out.println("cat1:"+cat1);
+        System.out.println("cat2:"+cat2);
+        System.out.println("cat3:"+cat3);
+        System.out.println("type:"+type);
 
         for(Offer offer : offers ){
-//            System.out.println( "Title: "+offer.getTitle() );
+            System.out.println( "Store: "+offer.getStore().getName() );
             if( store.equalsIgnoreCase("todas") || offer.getStore().getName().equalsIgnoreCase(store)  ){
                 System.out.println("Paso store");
                 System.out.println(offer.getType().toString());

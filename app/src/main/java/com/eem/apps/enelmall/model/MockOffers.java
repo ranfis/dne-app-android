@@ -39,11 +39,6 @@ public class MockOffers {
 
     public static String getOffers(int delay){
         Log.d(TAG, "getOffers()");
-        try {
-            Thread.sleep(delay);
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
         String jsonOffers = "[";
         for (Offer o : offers) {
 //            o.getLocation().put("longitude",1);
