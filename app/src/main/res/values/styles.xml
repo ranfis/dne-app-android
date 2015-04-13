@@ -5,5 +5,7 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:textColorPrimary">@color/eem_dark_blue</item>
         <item name="android:windowActionBar">true</item>
+
     </style>
+
 </resources>

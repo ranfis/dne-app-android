@@ -41,11 +41,12 @@
                     <Button
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:id="@+id/button"
+                        android:id="@+id/buttonFilter"
                         android:text="@string/offers_filter"
                         android:drawableLeft="@drawable/ic_action_search"
                         android:layout_gravity="right"
-                        android:background="#0000" />
+                        android:background="#0000"
+                        android:onClick="filterOnClick" />
                 </LinearLayout>
 
             </LinearLayout>

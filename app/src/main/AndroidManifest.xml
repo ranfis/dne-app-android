@@ -46,6 +46,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.eem.apps.enelmall.DetailsActivity" />
         </activity>
+        <activity
+            android:name=".FilterActivity"
+            android:label="@string/title_activity_filter"
+            android:parentActivityName=".OffersActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.eem.apps.enelmall.OffersActivity" />
+        </activity>
     </application>
 
 </manifest>

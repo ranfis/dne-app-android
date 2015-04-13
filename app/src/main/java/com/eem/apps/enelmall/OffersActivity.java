@@ -16,13 +16,20 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.eem.apps.enelmall.model.Category;
 import com.eem.apps.enelmall.model.Offer;
+import com.eem.apps.enelmall.model.Store;
+import com.eem.apps.enelmall.model.Type;
 import com.eem.apps.enelmall.model.api.OffersApi;
 import java.util.ArrayList;
 
 
 public class OffersActivity extends ActionBarActivity {
     public static OffersActivity self;
+    public static final int FILTER_REQUEST = 1;
+
+
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
     private String mActivityTitle;
@@ -91,10 +98,53 @@ public class OffersActivity extends ActionBarActivity {
 
     }
 
+    public void filterOnClick(View view) {
+        Intent intent = new Intent(OffersActivity.this, FilterActivity.class);
+        startActivityForResult(intent, FILTER_REQUEST);
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("[OffersActivity", "OnActivityResult()");
 
+        if (requestCode == FILTER_REQUEST) {
+            if (resultCode==RESULT_OK) {
+                Log.d("[OffersActivity", "OnActivityResult() - ResultOK");
+                //TODO Aqui se reciben todo lo seccionado en el activity de filtrado proximo
+                String category1 = data.getStringExtra(FilterActivity.CATEGORY1_SELECTION_CODE);
+                String category2 = data.getStringExtra(FilterActivity.CATEGORY2_SELECTION_CODE);
+                String category3 = data.getStringExtra(FilterActivity.CATEGORY3_SELECTION_CODE);
+                String storeSelected =data.getStringExtra(FilterActivity.STORE_SELECTION_CODE);
+                String typeSelected = data.getStringExtra(FilterActivity.TYPE_SELECTION_CODE);
+
+                if (category1.toLowerCase().equalsIgnoreCase("todas") && category2.toLowerCase().equalsIgnoreCase("todas")
+                        && category3.toLowerCase().equalsIgnoreCase("todas")
+                        && storeSelected.toLowerCase().equalsIgnoreCase("todas")
+                        && typeSelected.toLowerCase().equalsIgnoreCase("todas")) {
+                    //TODO Refresh all from Api
+                } else {
+                    //TODO Refresh with specific request from API
+                }
+
+                /**
+                 * Forma de actualizar el listView
+                 * param ArrayList de tipo oferta es lo que se mostrara en el ListView
+                 */
+                updatingOffers(new ArrayList<Offer>()); //TODO metodo que actualiza el listView
+
+            }
+        }
+    }
+
+    private void updatingOffers(ArrayList<Offer> newListOffers) {
+        offers.clear();
+        offers.addAll(newListOffers);
+        oAdapter.notifyDataSetChanged();
+    }
 
     private void settingMall() {
+        //TODO Set the Mall from the Location
         TextView mallTitle = (TextView) findViewById(R.id.mall_text);
         mallTitle.setText("Agora Mall");
     }
