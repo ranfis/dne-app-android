@@ -1,0 +1,294 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_with_cards"
+    android:paddingRight="@dimen/activity_with_cards"
+    android:paddingTop="@dimen/activity_with_cards"
+    android:paddingBottom="@dimen/activity_with_cards"
+    tools:context="com.eem.apps.enelmall.AboutActivity"
+    android:background="@color/eem_green">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="240dp"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/eem_logo_alt"
+                    android:layout_marginBottom="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout13"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/layer_card_background"
+                android:padding="16dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="En el Mall"
+                    android:id="@+id/textView7"
+                    android:gravity="left"
+                    android:textColor="#5E5E5E"
+                    android:textSize="20sp"
+                    android:layout_marginBottom="10dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="En el Mall se desarrolla para la asignatura de Desarrollo de Negocios de Electronico impartida en la Universidad Iberoamericana (UNIBE) . El equipo esta conformado por los siguientes estudiantes, y distribucion de trabajo para la implementación de la App."
+                    android:id="@+id/textView8"
+                    android:textColor="#A9A9A9"
+                    android:textIsSelectable="false"
+                    android:gravity="fill_horizontal"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout12"
+                android:gravity="center_vertical|center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/selector"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:paddingBottom="2dp"
+                android:nestedScrollingEnabled="true"
+                android:onClick="storeButton" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:padding="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout11"
+                    android:clickable="false" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:id="@+id/imageView4"
+                        android:layout_weight="2"
+                        android:background="#000000"
+                        android:adjustViewBounds="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ranfis_pic" />
+
+                    <LinearLayout
+                        android:padding="0dp"
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/selector"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/linearLayout10"
+                        android:clickable="true"
+                        android:onClick="storeButton" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0"
+                            android:id="@+id/linearLayout9"
+                            android:layout_marginBottom="0dp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:gravity="center_vertical" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Ramfis Sanchez"
+                                android:id="@+id/textView5"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Programador"
+                                android:id="@+id/textView6" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout8"
+                android:gravity="center_vertical|center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/selector"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:paddingBottom="2dp"
+                android:nestedScrollingEnabled="true"
+                android:onClick="storeButton" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:padding="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout7"
+                    android:clickable="false" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:id="@+id/imageView3"
+                        android:layout_weight="2"
+                        android:background="#000000"
+                        android:adjustViewBounds="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/luis_pic" />
+
+                    <LinearLayout
+                        android:padding="0dp"
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/selector"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/linearLayout6"
+                        android:clickable="true"
+                        android:onClick="storeButton" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0"
+                            android:id="@+id/linearLayout5"
+                            android:layout_marginBottom="0dp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:gravity="center_vertical" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Luis Martínez"
+                                android:id="@+id/textView3"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Programador"
+                                android:id="@+id/textView4" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearLayout4"
+                android:gravity="center_vertical|center_horizontal"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/selector"
+                android:orientation="vertical"
+                android:layout_marginBottom="8dp"
+                android:paddingBottom="2dp"
+                android:nestedScrollingEnabled="true"
+                android:onClick="storeButton" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:padding="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/linearLayout3"
+                    android:clickable="false" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="125dp"
+                        android:id="@+id/imageView2"
+                        android:layout_weight="2"
+                        android:background="#000000"
+                        android:adjustViewBounds="false"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/juan_pic" />
+
+                    <LinearLayout
+                        android:padding="0dp"
+                        android:orientation="vertical"
+                        android:layout_width="fill_parent"
+                        android:background="@drawable/selector"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:id="@+id/linearLayout2"
+                        android:clickable="true"
+                        android:onClick="storeButton" >
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="0"
+                            android:id="@+id/linearLayout"
+                            android:layout_marginBottom="0dp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:paddingBottom="16dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Juan Miguel García"
+                                android:id="@+id/textView"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceMedium"
+                                android:text="Front End"
+                                android:id="@+id/textView2" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
