@@ -170,13 +170,13 @@ public class OffersActivity extends ActionBarActivity {
                         break;
 
                     case 1: // Tiendas
-//                        Intent i2 = new Intent(getApplicationContext(), Tiendas.class);
-//                        startActivity(i2);
+                          Intent i2 = new Intent(OffersActivity.this, StoreActivity.class);
+                          startActivity(i2);
                         break;
 
                     case 2: // Acerca
-                          Intent i2 = new Intent(getApplicationContext(), AboutActivity.class);
-                          startActivity(i2);
+                          Intent i3 = new Intent(getApplicationContext(), AboutActivity.class);
+                          startActivity(i3);
                         break;
 
                 }
