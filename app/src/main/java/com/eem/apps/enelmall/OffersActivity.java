@@ -124,8 +124,11 @@ public class OffersActivity extends ActionBarActivity {
                         && storeSelected.toLowerCase().equalsIgnoreCase("todas")
                         && typeSelected.toLowerCase().equalsIgnoreCase("todas")) {
                     //TODO Refresh all from Api
+                    System.out.println("Dont filter");
+                    new OffersApi().execute("mock", MockOffers.getOffers(0));
 //                    new OffersApi().execute("mock", MockOffers.getOffers2(0));
                 } else {
+                    System.out.println("filter");
    /*                 System.out.println("=======");
                     System.out.println(category1);
                     System.out.println(category2);

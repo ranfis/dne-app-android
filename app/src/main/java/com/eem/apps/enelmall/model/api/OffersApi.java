@@ -21,6 +21,7 @@ public class OffersApi extends DataApiCall {
 
     protected void onPostExecute(String result) {
         Log.d(TAG, "onPostExecute()");
+        offers = new ArrayList<>();
         try {
             JSONArray jsonOffers = ((JSONArray)JsonParser.parse(result));
             for(int i=0;i<=jsonOffers.length()-1;i++){
@@ -38,30 +39,49 @@ public class OffersApi extends DataApiCall {
         Log.d(TAG, "filter()");
         ArrayList<Offer> newOffers = new ArrayList<>();
         ArrayList<Offer> offers = OffersApi.getAll();
-        System.out.println("new"+newOffers);
-        System.out.println("old"+offers);
+//        System.out.println("new"+newOffers);
+//        System.out.println("old"+offers);
+        System.out.println("store"+store);
+        System.out.println("cat1"+cat1);
+        System.out.println("cat2"+cat2);
+        System.out.println("cat3"+cat3);
+        System.out.println("type"+type);
 
         for(Offer offer : offers ){
-            System.out.println( "Title: "+offer.getTitle() );
-            if(offer.getStore().getName() == store){
-                if(offer.getCategory().toString() == cat1 ){
-                    System.out.println("Yeah1");
-                    newOffers.add(offer);
-                }
-                else if(offer.getCategory().toString() == cat2 ){
-                    System.out.println("Yeah2");
-                    newOffers.add(offer);
-                }
-                else if(offer.getCategory().toString() == cat3 ){
-                    System.out.println( "Yeah3");
-                    newOffers.add(offer);
+//            System.out.println( "Title: "+offer.getTitle() );
+            if( store.equalsIgnoreCase("todas") || offer.getStore().getName().equalsIgnoreCase(store)  ){
+                System.out.println("Paso store");
+                System.out.println(offer.getType().toString());
+                if(type.equalsIgnoreCase("todas") || offer.getType().toString().equalsIgnoreCase(type)){
+                    System.out.println("Paso type");
+                    if(offer.getCategory().toString().equalsIgnoreCase(cat1) ){
+                        System.out.println("Paso cat1");
+                        newOffers.add(offer);
+                    }
+                    else if(offer.getCategory().toString().equalsIgnoreCase(cat2) ){
+                        System.out.println("Paso cat1");
+                        newOffers.add(offer);
+                    }
+                    else if(offer.getCategory().toString().equalsIgnoreCase(cat3) ){
+                        System.out.println( "Paso cat3");
+                        newOffers.add(offer);
+                    }
+                    else if( cat3.equalsIgnoreCase("todas")  && cat2.equalsIgnoreCase("todas") && cat3.equalsIgnoreCase("todas") ){
+                        System.out.println( "Todas");
+                        newOffers.add(offer);
+                    }
                 }
             }
         }
+        OffersApi.setAll(newOffers);
     }
 
     public static ArrayList<Offer> getAll(){
         return offers;
+    }
+
+    public static void setAll(ArrayList<Offer> newOffers){
+        offers = newOffers;
     }
 
     public static void setOffer(Offer offerp) {
