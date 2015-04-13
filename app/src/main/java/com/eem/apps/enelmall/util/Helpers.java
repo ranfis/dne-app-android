@@ -6,6 +6,9 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
+import android.widget.ImageView;
+
+import com.eem.apps.enelmall.R;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -44,5 +47,23 @@ public final class Helpers {
         alertDialog.show();
 
         return result[0];
+    }
+
+    public static void setTypeIcon(int type, ImageView imageToSet) {
+        int drawableToShow = 0;
+        switch (type) {
+            case 1:
+
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+
+        imageToSet.setImageResource(drawableToShow);
+
     }
 }

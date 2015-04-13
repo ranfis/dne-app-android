@@ -5,8 +5,7 @@
     android:paddingRight="@dimen/activity_with_cards"
     android:paddingTop="0dp"
     android:paddingBottom="@dimen/activity_with_cards"
-    tools:context="com.eem.apps.enelmall.AboutActivity"
-    android:background="@color/eem_green">
+    tools:context="com.eem.apps.enelmall.AboutActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
