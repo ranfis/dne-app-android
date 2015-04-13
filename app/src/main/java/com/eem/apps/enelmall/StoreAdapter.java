@@ -42,15 +42,21 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         ImageView imageStore = (ImageView) item.findViewById(R.id.store_image);
 
 
+        GifDrawable gifFromResource = null;
+        try {
+            gifFromResource = new GifDrawable( OffersActivity.self.getResources(), R.drawable.ring );
+        }
+        catch (Exception ex){
+            Log.d(TAG, "getView()/Error loading spinner");
+        }
 
-        /** //TODO getImage from Store
         Picasso.with(context)
-                .load((String) store.get(position))
+                .load((String) store.get(position).getImage())
                 .placeholder(gifFromResource)
                 .error(R.drawable.no_image)
-                .into(imageOffer);
-        **/
-        imageStore.setImageResource(R.drawable.store_example);
+                .into(imageStore);
+
+        //imageStore.setImageResource(R.drawable.store_example);
 
         TextView storeTitle = (TextView) item.findViewById(R.id.store_title);
         storeTitle.setText(store.get(position).getName());

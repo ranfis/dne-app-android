@@ -22,6 +22,7 @@ public class StoreDetailsActivity extends ActionBarActivity {
     TextView phoneStore;
     TextView webStore;
     TextView fbStore;
+    Store store;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +47,6 @@ public class StoreDetailsActivity extends ActionBarActivity {
         webStore.setText("www.losgamers.com");
 //        webStore.setText(store.getUrlWebsite());
 
-        fbStore = (TextView) findViewById(R.id.buttonFacebookText);
-        fbStore.setText("Losgamerspuntocom");
-        fbStore.setText(store.getUrlFacebook());
     }
 
     private void settingCardsStore(Store store) {
@@ -83,7 +81,7 @@ public class StoreDetailsActivity extends ActionBarActivity {
 
     public void buttonFacebook(View view) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(fbStore.getText().toString()));
+        intent.setData(Uri.parse(store.getUrlFacebook()));
         startActivity(intent);
     }
 

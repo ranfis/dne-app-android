@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.eem.apps.enelmall.model.MockOffers;
 import com.eem.apps.enelmall.model.Store;
 import com.eem.apps.enelmall.model.api.OffersApi;
 
@@ -27,8 +28,10 @@ public class StoreActivity extends ActionBarActivity {
         setContentView(R.layout.activity_store);
 
         stores = new ArrayList<>();
-        stores.add(new Store(1, "O6 Store","Lunes a Viernes\nSabado y Domingo\nDías feriados","8:00 AM - 5:00 PM\n9:00 AM - 1:00 PM\n9:00 AM - 3:00 PM"));
-        stores.add(new Store(2, "Electro Lama","Lunes a Viernes\nSabado y Domingo\nDías feriados","8:00 AM - 5:00 PM\n9:00 AM - 1:00 PM\n9:00 AM - 3:00 PM"));
+        stores.add(MockOffers.stores[0]);
+        stores.add(MockOffers.stores[1]);
+        stores.add(MockOffers.stores[2]);
+        stores.add(MockOffers.stores[3]);
 
         sAdapter = new StoreAdapter(StoreActivity.this, stores);
         mStoreList = (ListView) findViewById(R.id.mListStores);

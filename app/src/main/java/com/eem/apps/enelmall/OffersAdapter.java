@@ -60,7 +60,7 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         titleOffer.setText(offers.get(position).getTitle());
 
         TextView storeOffer = (TextView) item.findViewById(R.id.offer_store);
-        storeOffer.setText(offers.get(position).getStore().getName());
+        //storeOffer.setText(offers.get(position).getStore().getName());
 
         ImageView typeOffer = (ImageView) item.findViewById(R.id.offer_type);
         Helpers.setTypeIcon(offers.get(position).getType().getId(), typeOffer);
