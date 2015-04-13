@@ -45,6 +45,6 @@
     <string name="typeOffer4">Concurso</string>
     <string name="title_activity_about">Acerca</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_store">StoreActivity</string>
+    <string name="title_activity_store">Tiendas</string>
 
 </resources>
