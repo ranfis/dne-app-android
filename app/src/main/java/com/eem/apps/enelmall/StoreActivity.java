@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.eem.apps.enelmall.model.Store;
+import com.eem.apps.enelmall.model.api.OffersApi;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ public class StoreActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(OffersActivity.this, "Posicion: " + position, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(StoreActivity.this, StoreDetailsActivity.class);
+                OffersApi.setStore(stores.get(position));
                 startActivity(i);
             }
         });
