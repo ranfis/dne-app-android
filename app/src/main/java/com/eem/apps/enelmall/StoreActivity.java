@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.eem.apps.enelmall.model.MockOffers;
@@ -41,6 +42,7 @@ public class StoreActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(OffersActivity.this, "Posicion: " + position, Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(StoreActivity.this, StoreDetailsActivity.class);
+                stores.get(position).setImageStore(((ImageView)view.findViewById(R.id.store_image)).getDrawable());
                 OffersApi.setStore(stores.get(position));
                 startActivity(i);
             }

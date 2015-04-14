@@ -160,7 +160,7 @@ public class OffersActivity extends ActionBarActivity {
     private void settingMall() {
         //TODO Set the Mall from the Location
         TextView mallTitle = (TextView) findViewById(R.id.mall_text);
-        mallTitle.setText("Agora Mall");
+        mallTitle.setText("UNIBE");
     }
 
 

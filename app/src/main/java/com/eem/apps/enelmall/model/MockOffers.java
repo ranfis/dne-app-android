@@ -27,7 +27,16 @@ public class MockOffers {
     };
 
     static Offer[] offers = {
-            new Offer(1, "Oferta 1", "Detalles 1", Type.DESCUENTO, Category.Electronicos, "18/04/15",stores[0] , location, "http://daxueconsulting.com/wp-content/uploads/2012/07/womens-clothes2.jpg"),
+            new Offer(1, "¡MP3 para tu auto! Paga RD$375 en vez de RD$750 MP3 con pantalla digital ",
+                    "¡MP3 para tu auto!\n" +
+                            "- ¡Compra y/o regala esta oferta!\n" +
+                            "- Oferta incluye: \n" +
+                            "- MP3 con pantalla digital\n" +
+                            "- Porta-memoria USB\n" +
+                            "- Portamiento para memoria Micro SD\n" +
+                            "- Control remoto \n" +
+                            "- Por solo RD$375.\n" +
+                            "- Impuestos incluidos.", Type.DESCUENTO, Category.Electronicos, "18/04/15",stores[0] , location, "http://daxueconsulting.com/wp-content/uploads/2012/07/womens-clothes2.jpg"),
             new Offer(1, "Oferta 2", "Detalles 2", Type.CONCURSO, Category.Belleza, "20/05/15", stores[1], location, "http://www.tenpin.org.au/uploads/RTEmagicC_House_Shoes_01.jpg.jpg"),
             new Offer(1, "Oferta 3", "Detalles 3", Type.TIEMPO_LIMITADO, Category.Caballeros, "15/04/15", stores[2], location, "http://machopicture.com/images/autumn-dresses/9301-fashion-clothes-for-women.jpg"),
             new Offer(1, "Oferta 4", "Detalles 4", Type.PAGUE1LLEVE2, Category.Entretenimiento, "30/06/15",  stores[3] , location, "https://s3.amazonaws.com/ODNUploads/5431308c0d073Cheese_Pizza_Pepperoni.jpsg")

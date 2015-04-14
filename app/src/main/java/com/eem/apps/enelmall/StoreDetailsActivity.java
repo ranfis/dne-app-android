@@ -1,6 +1,7 @@
 package com.eem.apps.enelmall;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
@@ -58,7 +59,7 @@ public class StoreDetailsActivity extends ActionBarActivity {
 
         titleStore.setText(store.getName());
         detailsStore.setText(store.getDetails());
-        photoStoreDetails.setImageResource(R.drawable.store_example);
+        photoStoreDetails.setImageDrawable((Drawable) store.getImageStore());
 
         textSchedule.setText(store.getHoursOpen());
         timeSchedule.setText(store.getDaysOpen());

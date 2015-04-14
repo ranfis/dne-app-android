@@ -61,6 +61,8 @@ public class DetailsActivity extends ActionBarActivity {
         ImageView storePhoto = (ImageView) findViewById(R.id.storePhoto);
         TextView titleStore = (TextView) findViewById(R.id.titleStore);
 
+        storePhoto.setImageResource(R.drawable.store_example);
+
         titleStore.setText(store.getName());
 
     }

@@ -11,6 +11,7 @@ public class Store {
     private String urlWebsite;
     private String phone;
     private String details;
+    private Object imageStore;
 
 
     public Store(int id, String name,String hoursOpen,String daysOpen) {
@@ -103,5 +104,13 @@ public class Store {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public Object getImageStore() {
+        return imageStore;
+    }
+
+    public void setImageStore(Object imageStore) {
+        this.imageStore = imageStore;
     }
 }

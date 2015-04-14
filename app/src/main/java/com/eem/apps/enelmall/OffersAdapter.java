@@ -2,6 +2,7 @@ package com.eem.apps.enelmall;
 
 import android.app.Activity;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,11 +50,14 @@ public class OffersAdapter extends ArrayAdapter<Offer> {
         }
 
 
+
         Picasso.with(context)
                 .load((String) offers.get(position).getImage())
                 .placeholder(gifFromResource)
                 .error(R.drawable.no_image)
                 .into(imageOffer);
+
+
 
 
         TextView titleOffer = (TextView) item.findViewById(R.id.offer_title);
